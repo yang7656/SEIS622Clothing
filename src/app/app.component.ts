@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { IMenuItem } from './models/menu-item';
+import { TopMenuService } from './shared/top-menu.service';
 
 @Component({
   selector: 'app-root',

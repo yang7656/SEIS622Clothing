@@ -2,8 +2,7 @@ export interface IMenuItem {
     logo: string; // location of the image
     dropdownMenu: IddMenu[];
     searchBox: boolean;
-    userSignin: boolean;
-    userAccount: boolean;
+    userSignIn: boolean;
     cart: boolean;
     contact: string;
 }

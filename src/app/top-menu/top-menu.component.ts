@@ -7,7 +7,7 @@ import { IMenuItem } from '../models/menu-item';
   templateUrl: './top-menu.component.html',
   styleUrls: ['./top-menu.component.css']
 })
-export class YourMenuComponent implements OnInit {
+export class TopMenuComponent implements OnInit {
   menu!: IMenuItem;
 
   constructor(private topMenuService: TopMenuService) { }

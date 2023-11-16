@@ -18,7 +18,6 @@ export class TopMenuService {
       ],
       searchBox: true,
       userSignIn: this.userSignedIn(),
-      userAccount: this.userSignedIn(),
       cart: true,
       contact: 'Contact Us'
     }
