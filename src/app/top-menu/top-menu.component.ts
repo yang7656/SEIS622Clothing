@@ -1,16 +1,24 @@
 import { Component, OnInit } from '@angular/core';
 import { TopMenuService } from '../shared/top-menu.service';
 import { IMenuItem } from '../models/menu-item';
+import { IddMenu } from '../models/menu-item';
 
 @Component({
   selector: 'top-menu', // <top-menu></top-menu>,
   templateUrl: './top-menu.component.html',
-  styleUrls: ['./top-menu.component.css']
+  styleUrls: ['./top-menu.component.scss']
 })
 export class TopMenuComponent implements OnInit {
   menu!: IMenuItem;
+  ddMenu!: IddMenu;
 
   constructor(private topMenuService: TopMenuService) { }
+
+  searchQuery: string = '';
+
+  onSearchInputChange(): void {
+    this.topMenuService.updateSearchQuery(this.searchQuery);
+  }
 
   ngOnInit() {
     this.menu = this.topMenuService.getMenu();

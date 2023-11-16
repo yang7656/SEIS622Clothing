@@ -1,0 +1,38 @@
+.menu-container {
+    display: flex; // Use flexbox for a horizontal layout
+    justify-content: space-between; // Distribute the space evenly between the items
+    align-items: center; // Center the items vertically
+    list-style: none; // Remove the bullets
+    padding: 0 1rem; // Add some padding around the items
+    background-color: #333; // Add a background color
+    color: #fff; // Add a text color;
+    margin: 0 auto;
+    max-height: 100px;
+  }
+
+.search-box {
+    margin-right: 10px;
+}
+
+.contact {
+    a:link {
+      color: #fff;
+      text-decoration: none;
+    }
+    a:visited {
+      color: #333;
+      text-decoration: none;
+    }
+    a:hover {
+      color: #fff;
+      font-size: 120%;
+    }
+}
+  
+img {
+    max-width: 100px;
+    height: 100px;
+}
+
+
+  

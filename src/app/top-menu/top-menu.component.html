@@ -1,27 +1,23 @@
-<div class="logo-container">
+<div class="menu-container">
+  <div class="logo-container">
     <img src="assets/images/logo.png" alt="SEIS-622 Northern Streetwear">
-  </div>
-  
+  </div>  
   <div class="dropdown-menu">
     <button class="dropbtn">Dropdown</button>
     <div class="dropdown-content">
-      <!--<a *ngFor="let item of menu.dropdownMenu" IddMenu]="item.link">{{ item.label }}</a>-->
+      <a *ngFor="let item of ddMenu.title" href="{{ item.link }}">{{ item }}</a>
     </div>
   </div>
-  
   <div class="search-box" *ngIf="menu.searchBox">
-
-    <!-- Search box implementation goes here -->
-    
-    <input type="text" placeholder="Search...">
+    <input type="text" placeholder="Search..." [(ngModel)]="searchQuery" (input)="onSearchInputChange()">
   </div>
-  
   <div class="links">
-    <!--<a href="{{ menu.userSignIn }}">{{ menu.userSignIn.label }}</a> 
-    <a href="{{ menu.contact.link }}">{{ menu.contact.label }}</a> -->
+    <app-signin></app-signin>
   </div>
-  
   <div class="cart-image">
-    <img src="{{ menu.cart }}" alt="View Your Cart">
+    <button class="cart-button"><img src="assets/images/cart.png" alt="View Your Cart"></button>
   </div>
-  
+  <div class="contact">
+    <a href="mailto:info@seis-622.com">Contact Us</a>
+  </div>
+</div> 
