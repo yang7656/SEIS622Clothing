@@ -1,1 +1,0 @@
-# SEIS622Clothing
