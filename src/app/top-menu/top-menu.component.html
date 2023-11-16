@@ -1,0 +1,28 @@
+<div class="logo-container">
+    <img src="{{ menu.logo }}" alt="Logo">
+  </div>
+  
+  <div class="dropdown-menu">
+    <button class="dropbtn">Dropdown</button>
+    <div class="dropdown-content">
+      <a *ngFor="let item of menu.dropdownMenu" IddMenu]="item.link">{{ item.label }}</a>
+    </div>
+  </div>
+  
+  <div class="search-box" *ngIf="menu.searchBox">
+
+    <!-- Search box implementation goes here -->
+    
+    <input type="text" placeholder="Search...">
+  </div>
+  
+  <div class="links">
+    <a href="{{ menu.signIn.link }}">{{ menu.signIn.label }}</a>
+    <a href="{{ menu.signUp.link }}">{{ menu.signUp.label }}</a>
+    <a href="{{ menu.contact.link }}">{{ menu.contact.label }}</a>
+  </div>
+  
+  <div class="cart-image">
+    <img src="{{ menu.cart }}" alt="View Your Cart">
+  </div>
+  
