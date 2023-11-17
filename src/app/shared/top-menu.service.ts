@@ -5,9 +5,15 @@ import { IMenuItem, IddMenu } from '../models/menu-item';
   providedIn: 'root'
 })
 export class TopMenuService {
-  updateMenuItemLabel(index: number, newLabel: string) {
-    throw new Error('Method not implemented.');
+  updateSearchQuery(searchQuery: string) {
+    console.log('Method not implemented.');
   }
+  updateMenuItemLabel(index: number, newLabel: string) {
+    console.log('Method not implemented.');
+  }
+
+  constructor() { }
+
   getMenu(): IMenuItem {
     return {
       logo: 'assets/images/logo.png',

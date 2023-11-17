@@ -1,23 +1,20 @@
-<div class="menu-container">
-  <div class="logo-container">
-    <img src="assets/images/logo.png" alt="SEIS-622 Northern Streetwear">
-  </div>  
-  <div class="dropdown-menu">
-    <button class="dropbtn">Dropdown</button>
-    <div class="dropdown-content">
+<ul class="menu-container">
+  <li>
+    <img src="assets/images/logo.png" alt="SEIS-622 Northern Streetwear" class="logo">
+  </li>  
+  <li class="dropdown-menu">
       <a *ngFor="let item of ddMenu.title" href="{{ item.link }}">{{ item }}</a>
-    </div>
-  </div>
-  <div class="search-box" *ngIf="menu.searchBox">
-    <input type="text" placeholder="Search..." [(ngModel)]="searchQuery" (input)="onSearchInputChange()">
-  </div>
-  <div class="links">
+  </li>
+  <li class="search-box" *ngIf="menu.searchBox">
+    <input type="text" placeholder="Search..." [(ngModel)]="searchQuery" (input)="onSearchInputChange()" />
+  </li>
+  <li class="links">
     <app-signin></app-signin>
-  </div>
-  <div class="cart-image">
-    <button class="cart-button"><img src="assets/images/cart.png" alt="View Your Cart"></button>
-  </div>
-  <div class="contact">
+  </li>
+  <li class="cart-image">
+    <button class="cart-button"><img src="assets/images/cart.png" alt="View Your Cart" class="cart"></button>
+  </li>
+  <li class="contact">
     <a href="mailto:info@seis-622.com">Contact Us</a>
-  </div>
-</div> 
+  </li>
+</ul> 
