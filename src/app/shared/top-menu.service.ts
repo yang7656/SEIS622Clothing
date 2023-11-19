@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { IMenuItem, IddMenu } from '../models/menu-item';
+import { IMenuItem } from '../models/menu-item';
 
 @Injectable({
   providedIn: 'root'
@@ -18,9 +18,9 @@ export class TopMenuService {
     return {
       logo: 'assets/images/logo.png',
       dropdownMenu: [
-        { title: 'Home', link: 'home' },
-        { title: 'About', link: 'about' },
-        { title: 'Contact', link: 'contact' }
+        "Home",
+        'About',
+        'Contact'
       ],
       searchBox: true,
       userSignIn: this.userSignedIn(),

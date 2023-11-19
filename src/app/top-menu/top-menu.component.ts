@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { TopMenuService } from '../shared/top-menu.service';
 import { IMenuItem } from '../models/menu-item';
-import { IddMenu } from '../models/menu-item';
 
 @Component({
   selector: 'top-menu', // <top-menu></top-menu>,
@@ -10,7 +9,7 @@ import { IddMenu } from '../models/menu-item';
 })
 export class TopMenuComponent implements OnInit {
   menu!: IMenuItem;
-  ddMenu!: IddMenu;
+  public ddMenu = ["TShirts", "TankTops", "Hoodies", "Jackets"];
 
   constructor(private topMenuService: TopMenuService) { }
 
@@ -28,5 +27,8 @@ export class TopMenuComponent implements OnInit {
     this.topMenuService.updateMenuItemLabel(index, newLabel);
     // Refresh the menu or perform additional actions if needed
     this.menu = this.topMenuService.getMenu();
+  }
+  placeHolder(string: string) {
+    alert("This is a placeholder");
   }
 }
