@@ -1,4 +1,3 @@
-// data.service.ts
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
@@ -8,15 +7,14 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root' //creates a Singleton service
 })
 export class DataService {
-  private dataUrl = 'assets/data/customer_data.json'; 
+  constructor(private http: HttpClient) {
 
-  constructor(private http: HttpClient) { }
+   }
 
   // Read data from JSON file
-  getData(): Observable<any> {
-    return this.http.get<any>(this.dataUrl).pipe(
-      catchError(this.handleError)
-    );
+  getData(dataUrl: string): Observable<any> {
+    return this.http.get<any>(dataUrl).pipe(
+      catchError(this.handleError) );
   }
 
   // Write data to JSON file

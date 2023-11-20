@@ -3,7 +3,7 @@
     <img src="assets/images/logo.png" alt="SEIS-622 Northern Streetwear" class="logo">
   </li>  
   <li class="dropdown-menu">
-    <span><button class="dropbtn">Category</button><div class="dropdown-content"><a *ngFor="let item of ddMenu" (click)="placeHolder(item)">{{ item }}</a></div></span>
+    <span><button class="dropbtn">Category</button><div class="dropdown-content"><a *ngFor="let label of menu.dropdownMenu" (click)="placeHolder(label)">{{ label }}</a></div></span>
   </li>
   <li class="search-box" *ngIf="menu.searchBox">
     <input type="text" placeholder="Search..." [(ngModel)]="searchQuery" (input)="onSearchInputChange()" />

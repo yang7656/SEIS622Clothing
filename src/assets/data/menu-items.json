@@ -1,0 +1,27 @@
+{
+    "logo": "assets/images/logo.png",
+    "dropdownMenu": {
+        "items": [
+            {
+                "label": "TShirts",
+                "link": "/tshirts"
+            },
+            {
+                "label": "Hoodies",
+                "link": "/hoodies"
+            },
+            {
+                "label": "Tank Tops",
+                "link": "/tanktops"
+            },
+            {
+                "label": "Jackets",
+                "link": "/jackets"
+            }
+        ]
+    },
+    "searchBox": true,
+    "userSignIn": false,
+    "cart": true,
+    "contact": "mailto: fashionpolice@seis-622.com"
+}
