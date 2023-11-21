@@ -6,15 +6,15 @@
     <span><button class="dropbtn">Category</button><div class="dropdown-content"><a *ngFor="let ddMenu of dropDownMenu" (click)="dropDownClicked(ddMenu.pageName)">{{ ddMenu.pageName }}</a></div></span>
   </li>
   <li class="search-box" *ngIf="menu.searchBox">
-    <input type="text" placeholder="Search..." [(ngModel)]="searchQuery" (input)="onSearchInputChange()" />
+    <input type="text" placeholder="Search..." ngModel="searchQuery" (input)="onSearchInputChange()" />
   </li>
   <li class="links">
-    <signin></signin>
+    <a *ngFor="let link of dropDownMenu" {link.link}="link.link">{{ link }}</a>
   </li>
   <li class="cart-image" *ngIf="menu.cart">
     <button class="cart-button"><img src="assets/images/cart.png" alt="View Your Cart" class="cart"></button>
   </li>
   <li class="contact">
-    <a [(ngModel)]=menu.contact>Contact Us</a>
+    <a href=[(ngModel)]=menu.contact>Contact Us</a>
   </li>
 </ul> 

@@ -1,19 +1,28 @@
-import { Injectable } from '@angular/core';
+import { Injectable, OnInit } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 import { HttpClient } from '@angular/common/http';
 import { IMenuItem } from '../models/menu-item';
+import { TopMenuComponent } from '../top-menu/top-menu.component';
+import { JsonSourceFile } from 'typescript';
 
 @Injectable({
   providedIn: 'root' //creates a Singleton service
 })
 
-export class DataService {
-  
+export class DataService implements OnInit {
+  [x: string]: any;
   static http: HttpClient;
 
-  constructor( http: HttpClient) {
+  constructor( private http: HttpClient) {
     DataService.http = http;
+  }
+
+  ngOnInit(): void {
+    this['dataUrl'] = TopMenuComponent.getDataUrl();
+    this.http.get(this['dataUrl']).subscribe(data => { //Error: Cannot read properties of undefined (reading 'dataUrl')
+      this['mapMenu'](data);
+    });
   }
 
   // Read data from JSON file
@@ -42,5 +51,5 @@ export class DataService {
       console.log(`${operation} failed: ${error.message}`);
       return of(result as T);
     }
-  }
+  } 
 }

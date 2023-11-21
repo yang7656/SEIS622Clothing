@@ -10,17 +10,16 @@ import { HttpClientModule } from '@angular/common/http';
 @NgModule({
   declarations: [
     AppComponent,
-    TopMenuComponent,
     SigninComponent,
-
+    TopMenuComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
 
   ],
-  providers: [TopMenuComponent, SigninComponent],
+  providers: [ SigninComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

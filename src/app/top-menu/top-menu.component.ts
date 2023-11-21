@@ -9,7 +9,10 @@ import { DataService } from '../shared/data-service.service';
   styleUrls: ['./top-menu.component.scss']
 })
 
-export class TopMenuComponent implements OnInit {
+export class TopMenuComponent {
+  static getDataUrl(): any {
+    throw new Error('Method not implemented.');
+  }
   
   private dataUrl = './assets/data/menu-items.json';
   searchQuery: string = '';
@@ -18,19 +21,20 @@ export class TopMenuComponent implements OnInit {
 
   public dropDownMenu: IDropDownItem[] = [{pageName: '', link: ''}];
 
-  constructor(private topMenuService: TopMenuService, private dataService: DataService) { 
-    
+  constructor(private topMenuService: TopMenuService) { 
+
   }
 
-  onSearchInputChange(): void {
-    this.topMenuService.updateSearchQuery(this.searchQuery);
+  getDataUrl(): string {
+    return this.dataUrl;
   }
 
-  ngOnInit(): void {
-    this.mapMenu(DataService.getMenu(this.dataUrl));
+  onSearchInputChange(): any {
+    console.log(this.searchQuery);
+    return this.searchQuery;
   }
 
-  dropDownClicked(string: string) {
+    dropDownClicked(string: string) {
     //Go to page based on string
 
   }
