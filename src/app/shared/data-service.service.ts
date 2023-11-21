@@ -1,20 +1,33 @@
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
-import { catchError, map } from 'rxjs/operators';
+import { catchError } from 'rxjs/operators';
 import { HttpClient } from '@angular/common/http';
+import { IMenuItem } from '../models/menu-item';
 
 @Injectable({
   providedIn: 'root' //creates a Singleton service
 })
-export class DataService {
-  constructor(private http: HttpClient) {
 
-   }
+export class DataService {
+  
+  static http: HttpClient;
+
+  constructor( http: HttpClient) {
+    DataService.http = http;
+  }
 
   // Read data from JSON file
-  getData(dataUrl: string): Observable<any> {
+  static getData(dataUrl: string): Observable<any> {
     return this.http.get<any>(dataUrl).pipe(
-      catchError(this.handleError) );
+      catchError(this.handleError<any>('getData'))
+    );
+  }
+
+  // Read menu data from JSON file, return IMenuItem
+  static getMenu(dataUrl: string): Observable<IMenuItem> {
+    return this.http.get<IMenuItem>(dataUrl).pipe(
+      catchError(this.handleError<IMenuItem>('getMenu'))
+    );
   }
 
   // Write data to JSON file
@@ -23,8 +36,11 @@ export class DataService {
   }
 
   // Handle errors
-  private handleError(error: any): Observable<any> {
-    console.error('An error occurred:', error);
-    return of(null); 
+  static  handleError<T>(operation: string, result?: T) {
+    return (error: any): Observable<T> => {
+      console.error(error);
+      console.log(`${operation} failed: ${error.message}`);
+      return of(result as T);
+    }
   }
 }

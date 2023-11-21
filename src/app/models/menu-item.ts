@@ -8,6 +8,6 @@ export interface IMenuItem {
 }
 
 export interface IDropDownItem {
-    label: string;
+    pageName: string;
     link: string;
 }

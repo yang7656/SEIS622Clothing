@@ -2,91 +2,53 @@ import { Component, OnInit } from '@angular/core';
 import { TopMenuService } from '../shared/top-menu.service';
 import { IMenuItem, IDropDownItem } from '../models/menu-item';
 import { DataService } from '../shared/data-service.service';
-import { map } from 'rxjs/operators';
 
 @Component({
   selector: 'top-menu', // <top-menu></top-menu>,
   templateUrl: './top-menu.component.html',
   styleUrls: ['./top-menu.component.scss']
 })
+
 export class TopMenuComponent implements OnInit {
   
-  private dataUrl = 'src/assets/data/menu-items.json';
-  public menuArray: any[] = DataService.getData(this.dataUrl);
+  private dataUrl = './assets/data/menu-items.json';
   searchQuery: string = '';
 
-  public menu: IMenuItem = {
-    logo: '',
-    dropdownMenu: [],
-    searchBox: false,
-    userSignIn: false,
-    cart: false,
-    contact: ''
-  };
+  public menu: IMenuItem = this.mapMenu(DataService.getMenu(this.dataUrl));
 
-  mapMenu(menu: any) {
-    for (let index = 0; index++; index<this.menuArray.length) {
-      let key = this.menuArray[index].key;
-      if (key === 'logo') {
-        this.menu.logo = key.map((item: any) => {
-          return {
-            logo: item.logo
-          }
-        });
-      } else if (key === 'dropdownMenu') {
-        this.menu.dropdownMenu = key.map((item: any) => {
-          return {
-            label: item.label,
-            link: item.link
-          }
-        });
-      } else if (key === 'searchBox') {
-        this.menu.searchBox = key.map((item: any) => {
-          return {
-            searchBox: item.searchBox
-          }
-        });        
-      } else if (key === 'userSignIn') {
-        this.menu.userSignIn = key.map((item: any) => {
-          return {
-            userSignIn: item.userSignIn
-          }
-        });        
-      } else if (key === 'cart') {
-        this.menu.cart = key.map((item: any) => {
-          return {
-            cart: item.cart
-          }
-        });        
-      } else if (key === 'contact') {
-        this.menu.contact = key.map((item: any) => {
-          return {
-            contact: item.contact
-          }
-        });        
-      } else {
-        alert("Error: menu key not found");
-      }
-    };
-  }
+  public dropDownMenu: IDropDownItem[] = [{pageName: '', link: ''}];
 
-  constructor(private topMenuService: TopMenuService) { 
-
+  constructor(private topMenuService: TopMenuService, private dataService: DataService) { 
+    
   }
 
   onSearchInputChange(): void {
     this.topMenuService.updateSearchQuery(this.searchQuery);
   }
 
-  ngOnInit() {
-    this.menuArray = DataService.getMenu(this.dataUrl);
+  ngOnInit(): void {
+    this.mapMenu(DataService.getMenu(this.dataUrl));
   }
 
-  placeHolder(string: string) {
-    alert("This is a placeholder");
+  dropDownClicked(string: string) {
+    //Go to page based on string
+
   }
 
-  addDropdownItem(label: string, link: string) {
-    //this.ddMenu.push({label, link});
+  addDropdownItem(pageName: string, link: string) {
+    this.dropDownMenu.push({pageName, link});
+  }
+
+  mapMenu(items: any): IMenuItem {
+    this.menu.logo = items.logo;
+    this.menu.searchBox = items.searchBox;
+    this.menu.userSignIn = items.userSignIn;
+    this.menu.cart = items.cart;
+    this.menu.contact = items.contact;
+    this.menu.dropdownMenu = items.dropdownMenu;
+    for (let i = 0; i < this.menu.dropdownMenu.length; i++) {
+      this.addDropdownItem(this.menu.dropdownMenu[i].pageName, this.menu.dropdownMenu[i].link);
+    }
+    return this.menu;
   }
 }

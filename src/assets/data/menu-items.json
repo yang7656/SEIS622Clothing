@@ -3,19 +3,19 @@
     "dropdownMenu": {
         "items": [
             {
-                "label": "TShirts",
+                "pageName": "TShirts",
                 "link": "/tshirts"
             },
             {
-                "label": "Hoodies",
+                "pageName": "Hoodies",
                 "link": "/hoodies"
             },
             {
-                "label": "Tank Tops",
+                "pageName": "Tank Tops",
                 "link": "/tanktops"
             },
             {
-                "label": "Jackets",
+                "pageName": "Jackets",
                 "link": "/jackets"
             }
         ]

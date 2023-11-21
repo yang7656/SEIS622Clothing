@@ -1,20 +1,20 @@
 <ul class="menu-container">
   <li>
-    <img src="assets/images/logo.png" alt="SEIS-622 Northern Streetwear" class="logo">
+    <img src='{logo}' alt="SEIS-622 Northern Streetwear" class="logo">
   </li>  
   <li class="dropdown-menu">
-    <span><button class="dropbtn">Category</button><div class="dropdown-content"><a *ngFor="let label of menu.dropdownMenu" (click)="placeHolder(label)">{{ label }}</a></div></span>
+    <span><button class="dropbtn">Category</button><div class="dropdown-content"><a *ngFor="let ddMenu of dropDownMenu" (click)="dropDownClicked(ddMenu.pageName)">{{ ddMenu.pageName }}</a></div></span>
   </li>
   <li class="search-box" *ngIf="menu.searchBox">
     <input type="text" placeholder="Search..." [(ngModel)]="searchQuery" (input)="onSearchInputChange()" />
   </li>
   <li class="links">
-    <app-signin></app-signin>
+    <signin></signin>
   </li>
-  <li class="cart-image">
+  <li class="cart-image" *ngIf="menu.cart">
     <button class="cart-button"><img src="assets/images/cart.png" alt="View Your Cart" class="cart"></button>
   </li>
   <li class="contact">
-    <a href="mailto:info@seis-622.com">Contact Us</a>
+    <a [(ngModel)]=menu.contact>Contact Us</a>
   </li>
 </ul> 
