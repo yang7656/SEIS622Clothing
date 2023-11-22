@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IMenuItem } from './models/menu-item';
+import { IMenuItem } from './models/IMenuItem';
 import { TopMenuService } from './shared/top-menu.service';
 
 @Component({

@@ -1,7 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { TopMenuService } from '../shared/top-menu.service';
-import { IMenuItem, IDropDownItem } from '../models/menu-item';
-import { DataService } from '../shared/data-service.service';
+import { IMenuItem, IDropDownItem } from '../models/IMenuItem';
 
 @Component({
   selector: 'top-menu', // <top-menu></top-menu>,
@@ -10,46 +9,33 @@ import { DataService } from '../shared/data-service.service';
 })
 
 export class TopMenuComponent {
-  static getDataUrl(): any {
-    throw new Error('Method not implemented.');
-  }
-  
-  private dataUrl = './assets/data/menu-items.json';
+  public topMenuService: TopMenuService = new TopMenuService();
   searchQuery: string = '';
-
-  public menu: IMenuItem = this.mapMenu(DataService.getMenu(this.dataUrl));
-
   public dropDownMenu: IDropDownItem[] = [{pageName: '', link: ''}];
+  public menu: IMenuItem = this.topMenuService.getMenu('./assets/data/menu-items.json');
 
-  constructor(private topMenuService: TopMenuService) { 
-
-  }
-
-  getDataUrl(): string {
-    return this.dataUrl;
-  }
+  constructor() { }
 
   onSearchInputChange(): any {
     console.log(this.searchQuery);
     return this.searchQuery;
   }
 
-    dropDownClicked(string: string) {
+  dropDownClicked(string: string) {
     //Go to page based on string
 
   }
 
-  addDropdownItem(pageName: string, link: string) {
+  private addDropdownItem(pageName: string, link: string) {
     this.dropDownMenu.push({pageName, link});
   }
 
-  mapMenu(items: any): IMenuItem {
+  public mapMenu(items: any): IMenuItem {
     this.menu.logo = items.logo;
     this.menu.searchBox = items.searchBox;
     this.menu.userSignIn = items.userSignIn;
     this.menu.cart = items.cart;
     this.menu.contact = items.contact;
-    this.menu.dropdownMenu = items.dropdownMenu;
     for (let i = 0; i < this.menu.dropdownMenu.length; i++) {
       this.addDropdownItem(this.menu.dropdownMenu[i].pageName, this.menu.dropdownMenu[i].link);
     }

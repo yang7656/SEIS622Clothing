@@ -1,6 +1,6 @@
 <ul class="menu-container">
   <li>
-    <img src='{logo}' alt="SEIS-622 Northern Streetwear" class="logo">
+    <img src='../assets/images/{{menu.logo}}' alt="SEIS-622: Northern Streetwear" class="logo" />
   </li>  
   <li class="dropdown-menu">
     <span><button class="dropbtn">Category</button><div class="dropdown-content"><a *ngFor="let ddMenu of dropDownMenu" (click)="dropDownClicked(ddMenu.pageName)">{{ ddMenu.pageName }}</a></div></span>
@@ -15,6 +15,6 @@
     <button class="cart-button"><img src="assets/images/cart.png" alt="View Your Cart" class="cart"></button>
   </li>
   <li class="contact">
-    <a href=[(ngModel)]=menu.contact>Contact Us</a>
+    <a href={{menu.contact}}>Contact Us</a>
   </li>
 </ul> 

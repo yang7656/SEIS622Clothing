@@ -17,7 +17,7 @@ import { HttpClientModule } from '@angular/common/http';
     BrowserModule,
     FormsModule,
     HttpClientModule,
-
+    
   ],
   providers: [ SigninComponent],
   bootstrap: [AppComponent]
