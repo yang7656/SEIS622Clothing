@@ -30,7 +30,7 @@ li {
 .contact {
   a:link {
     background-color: #4CAF50;
-    color: white;
+    color: #fff;
     padding: 16px;
     font-size: 25px;
     border: none;
@@ -63,7 +63,7 @@ li {
 
 .dropbtn {
   background-color: #4CAF50;
-  color: white;
+  color: #fff;
   padding: 16px;
   font-size: 25px;
   border: none;
@@ -100,4 +100,12 @@ li {
 
 .dropdown:hover .dropbtn {
   background-color: #3e8e41;
+}
+
+.signin {
+  margin-left: 20px;
+  
+  signin:hover {
+    text-shadow: hsl(0, 0%, 100%) 0 0 5px;
+  }
 }

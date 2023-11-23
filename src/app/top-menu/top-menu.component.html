@@ -1,15 +1,16 @@
 <ul class="menu-container">
   <li>
-    <img src='../assets/images/{{menu.logo}}' alt="SEIS-622: Northern Streetwear" class="logo" />
+    <img src='{{menu.logo}}' alt="SEIS-622: Northern Streetwear" class="logo" />
   </li>  
   <li class="dropdown-menu">
-    <span><button class="dropbtn">Category</button><div class="dropdown-content"><a *ngFor="let ddMenu of dropDownMenu" (click)="dropDownClicked(ddMenu.pageName)">{{ ddMenu.pageName }}</a></div></span>
+    <button class="dropbtn">Category</button><div class="dropdown-content"><a *ngFor="let ddMenu of dropDownMenu" (click)="dropDownClicked('placeholder')">{{ ddMenu.pageName }}</a></div>
   </li>
   <li class="search-box" *ngIf="menu.searchBox">
-    <input type="text" placeholder="Search..." ngModel="searchQuery" (input)="onSearchInputChange()" />
+    <input type="text" placeholder="Search..." ngModel="searchQuery" (input)="onSearchInputChange(searchQuery)" />
   </li>
-  <li class="links">
-    <a *ngFor="let link of dropDownMenu" {link.link}="link.link">{{ link }}</a>
+  <li class="signin">
+    <div *ngIf="menu.userSignIn"><signin></signin></div>
+    <!--<a *ngFor="let ddMenu of dropDownMenu" >{{ ddMenu.pageName }}</a>-->
   </li>
   <li class="cart-image" *ngIf="menu.cart">
     <button class="cart-button"><img src="assets/images/cart.png" alt="View Your Cart" class="cart"></button>

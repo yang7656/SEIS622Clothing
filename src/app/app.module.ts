@@ -5,21 +5,24 @@ import { TopMenuComponent } from './top-menu/top-menu.component';
 import { FormsModule } from '@angular/forms';
 import { SigninComponent } from './signin/signin.component';
 import { HttpClientModule } from '@angular/common/http';
+import { SigninPageComponent } from './signin-page/signin-page.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     SigninComponent,
-    TopMenuComponent
+    TopMenuComponent,
+    SigninPageComponent,
+
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpClientModule,
-    
+
   ],
-  providers: [ SigninComponent],
+  providers: [ SigninComponent, SigninPageComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

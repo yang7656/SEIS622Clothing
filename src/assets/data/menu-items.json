@@ -1,5 +1,5 @@
 {
-    "logo": "logo.png",
+    "logo": "assets/images/logo.png",
     "dropdownMenu": {
         "items": [
             {
@@ -21,7 +21,7 @@
         ]
     },
     "searchBox": true,
-    "userSignIn": false,
+    "userSignIn": true,
     "cart": true,
     "contact": "mailto: fashionpolice@seis-622.com"
 }

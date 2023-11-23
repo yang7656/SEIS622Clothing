@@ -8,37 +8,34 @@ import { OnInit } from '@angular/core';
   providedIn: 'root'
 })
 
-export class TopMenuService implements OnInit{
+export class TopMenuService implements OnInit {
   private topMenuComponent: TopMenuComponent = new TopMenuComponent();
-  private menuUrl = './assets/data/menu-items.json';
-  public menu: IMenuItem = {
-    logo: '',
-    searchBox: false,
-    userSignIn: false,
-    cart: false,
-    contact: '',
-    dropdownMenu: []
-  };
+  private menuUrl = 'assets/data/menu-items.json';
+  public menu: IMenuItem = this.topMenuComponent.menu;
+  public dropDownMenu: IDropDownItem[] = this.topMenuComponent.dropDownMenu;
 
-  updateSearchQuery(searchQuery: string) {
-    console.log('Method not implemented.');
-  }
-  updateMenuItemLabel(index: number, newLabel: string) {
-    console.log('Method not implemented.');
-  }
+  constructor() { }
 
-  constructor() {
-
-  }
-
+  //Periodically checks for changes in the menu
   ngOnInit(): void {
     let jsonMenu = DataService.getData(this.menuUrl).subscribe(data => {
       this.menu = this.topMenuComponent.mapMenu(data);
     });
   }
 
+  //Uses the data service to get the menu from the JSON file
   public getMenu(menuUrl: string): IMenuItem {
     let jsonMenu = DataService.getData(menuUrl);
-      return this.topMenuComponent.mapMenu(jsonMenu);
-    }
+    return this.topMenuComponent.mapMenu(jsonMenu);
+  }
+
+  //Called when the search box is clicked
+  public updateSearchQuery(searchQuery: string) {
+    //Yet to be implemented:  update the search query
+  }
+
+  //Called when a dropdown item is clicked
+  public updateMenuItemLabel(index: number, newLabel: string) {
+    //Yet to be implemented: update the menu item label
+  }
 }
