@@ -9,14 +9,12 @@ import { HttpClient } from '@angular/common/http';
 })
 export class NewArrivalComponent implements OnInit 
 {
-  products: string[] = [];
+  products: any[] = [];
 
   constructor(private http: HttpClient) { }
-
+  
   ngOnInit(): void 
   {
-    this.http.get<string[]>('assets/images.json').subscribe(data => {
-      this.products = data;
-    });
+    
   }
 }
