@@ -1,1 +1,9 @@
-<p>new-arrival works!</p>
+<div class="new-arrivals-container">
+    <div class="product-card" *ngFor="let product of products">
+        <img [src]="'assets/images/' + product" alt="New Arrival">
+        <div class="product-details">
+            <h3>Card Title</h3>
+            <p>Secondary text</p>
+        </div>
+    </div>
+</div>
