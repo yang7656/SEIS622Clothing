@@ -1,25 +1,5 @@
 {
     "logo": "assets/images/logo.png",
-    "dropdownMenu": {
-        "items": [
-            {
-                "pageName": "TShirts",
-                "link": "/tshirts"
-            },
-            {
-                "pageName": "Hoodies",
-                "link": "/hoodies"
-            },
-            {
-                "pageName": "Tank Tops",
-                "link": "/tanktops"
-            },
-            {
-                "pageName": "Jackets",
-                "link": "/jackets"
-            }
-        ]
-    },
     "searchBox": true,
     "userSignIn": true,
     "cart": true,

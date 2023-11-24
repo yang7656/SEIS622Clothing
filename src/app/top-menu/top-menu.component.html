@@ -3,14 +3,14 @@
     <img src='{{menu.logo}}' alt="SEIS-622: Northern Streetwear" class="logo" />
   </li>  
   <li class="dropdown-menu">
-    <button class="dropbtn">Category</button><div class="dropdown-content"><a *ngFor="let ddMenu of dropDownMenu" (click)="dropDownClicked('placeholder')">{{ ddMenu.pageName }}</a></div>
+    <button class="dropbtn">Category</button><div class="dropdown-content"><a *ngFor="let item of dropDownMenu" (click)="dropDownClicked('placeholder')">{{ item.pageName }}</a></div>
   </li>
   <li class="search-box" *ngIf="menu.searchBox">
     <input type="text" placeholder="Search..." ngModel="searchQuery" (input)="onSearchInputChange(searchQuery)" />
   </li>
   <li class="signin">
-    <div *ngIf="menu.userSignIn"><signin></signin></div>
-    <!--<a *ngFor="let ddMenu of dropDownMenu" >{{ ddMenu.pageName }}</a>-->
+    <div *ngIf="menu.userSignIn; else loggedIn"><signin></signin></div>
+    <ng-template #loggedIn><img src='assets/images/green_user_icon.png' class='userIcon' alt='User logged in' /></ng-template>
   </li>
   <li class="cart-image" *ngIf="menu.cart">
     <button class="cart-button"><img src="assets/images/cart.png" alt="View Your Cart" class="cart"></button>
