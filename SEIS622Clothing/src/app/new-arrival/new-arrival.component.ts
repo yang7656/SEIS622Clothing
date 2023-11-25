@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { ImageService } from '../../../serve/serve';
 
 @Component
 ({
@@ -9,12 +10,14 @@ import { HttpClient } from '@angular/common/http';
 })
 export class NewArrivalComponent implements OnInit 
 {
-  products: any[] = [];
+  products: string[] = [];
 
-  constructor(private http: HttpClient) { }
+  constructor(private imageService: ImageService) {}
   
   ngOnInit(): void 
   {
-    
+    this.imageService.getImages().subscribe((data: any) => {
+      this.products = data;
+    });
   }
 }

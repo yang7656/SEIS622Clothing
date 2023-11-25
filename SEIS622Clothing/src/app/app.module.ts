@@ -4,6 +4,7 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { NewArrivalComponent } from './new-arrival/new-arrival.component';
+import { ImageService } from '../../serve/serve';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,7 @@ import { NewArrivalComponent } from './new-arrival/new-arrival.component';
     BrowserModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [ImageService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
