@@ -25,6 +25,7 @@ export class DataService  {
   // Write data to JSON file
   writeData(data: any): Observable<any> {
     return of({ success: true, message: 'Data updated successfully.' });
+    //yet to implement
   }
 
   // Handle errors
@@ -35,6 +36,4 @@ export class DataService  {
       return of(result as T);
     }
   } 
-
-
 }

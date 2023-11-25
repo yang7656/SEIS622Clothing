@@ -6,6 +6,7 @@ import { FormsModule } from '@angular/forms';
 import { SigninComponent } from './signin/signin.component';
 import { HttpClientModule } from '@angular/common/http';
 import { SigninPageComponent } from './signin-page/signin-page.component';
+import { DropdownMenuComponent } from './dropdown-menu/dropdown-menu.component';
 
 
 @NgModule({
@@ -14,6 +15,7 @@ import { SigninPageComponent } from './signin-page/signin-page.component';
     SigninComponent,
     TopMenuComponent,
     SigninPageComponent,
+    DropdownMenuComponent,
 
   ],
   imports: [
