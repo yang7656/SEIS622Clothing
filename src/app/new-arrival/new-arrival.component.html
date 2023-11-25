@@ -3,8 +3,8 @@
     <div class="product-card" *ngFor="let product of products">
         <img [src]="'assets/images/' + product" alt="New Arrival">
         <div class="product-details">
-            <h3>Card Title</h3>
-            <p>Secondary text</p>
+            <h3>{{ product.split('_')[0].toUpperCase() }}</h3>
+            <p>{{ product.split('_')[1].toUpperCase() + '&nbsp;&nbsp;&nbsp;&nbsp;' + product.split('_')[2].toUpperCase().substring(0, 3) }}</p>
         </div>
     </div>
 </div>

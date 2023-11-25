@@ -17,6 +17,7 @@ export class NewArrivalComponent implements OnInit
   {
     this.imageService.getImages().subscribe((data: any) => {
       this.products = data;
+      console.log(this.products[0].split('_')[2].toUpperCase().substring(0, 3));
     });
   }
 }
