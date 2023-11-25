@@ -1,30 +1,47 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
-import { TopMenuComponent } from './top-menu/top-menu.component';
+import { TopMenuComponent } from './public/top-menu/top-menu.component';
 import { FormsModule } from '@angular/forms';
-import { SigninComponent } from './signin/signin.component';
 import { HttpClientModule } from '@angular/common/http';
-import { SigninPageComponent } from './signin-page/signin-page.component';
-import { DropdownMenuComponent } from './dropdown-menu/dropdown-menu.component';
+import { DropdownMenuComponent } from './public/dropdown-menu/dropdown-menu.component';
+import { MenuSearchComponent } from './public/menu-search/menu-search.component';
+import { AppRoutingModule } from './app-routing.module';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { JwtModule } from '@auth0/angular-jwt';
 
+//Key for local storage
+export const LOCALSTORAGE_TOKEN_KEY = 'access_token';
+
+//tokenGetter function for JwtModule
+export function tokenGetter() {
+  return localStorage.getItem(LOCALSTORAGE_TOKEN_KEY);
+}
 
 @NgModule({
   declarations: [
     AppComponent,
-    SigninComponent,
     TopMenuComponent,
-    SigninPageComponent,
     DropdownMenuComponent,
+    MenuSearchComponent,
 
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpClientModule,
+    AppRoutingModule,
+    JwtModule.forRoot({
+      config: {
+        tokenGetter: () => {
+          return localStorage.getItem('access_token');
+          allowedDomains: ['localhost:8080'];
+        }
+      }
+    }),
 
   ],
-  providers: [ SigninComponent, SigninPageComponent],
+  providers: [ MatSnackBar],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

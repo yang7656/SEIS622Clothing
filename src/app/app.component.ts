@@ -8,5 +8,5 @@ import { TopMenuService } from './shared/top-menu.service';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'SEIS-622 Northern Streetwear - From the Woods to the Pavement';
+  title = "SEIS-622 Northern Streetwear - From the Woods to the Pavement";
 }

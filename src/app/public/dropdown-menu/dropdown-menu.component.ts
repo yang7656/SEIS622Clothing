@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IDropDownItem } from '../models/IMenuItem';
+import { IDropDownItem } from '../../models/IMenuItem';
 
 @Component({
   selector: 'dropdown-menu',
@@ -19,17 +19,12 @@ export class DropdownMenuComponent {
 
   //Called when the dropdown menu is moused over
   dropDownMouseOver() {
-    console.log("Mouse over");
+    this.isDropDownOpen = true;
   }
 
   //Called when the dropdown menu is moused out
   dropDownMouseOut() {
-    console.log("Mouse out");
-  }
-
-  //Called when a dropdown item is clicked
-  dropDownClicked(string: string) {
-    //Yet to be implemented: redirect to the page
+    this.isDropDownOpen = false;
   }
 
   //Takes in a JSON object and maps it to the IDropDownItem interface

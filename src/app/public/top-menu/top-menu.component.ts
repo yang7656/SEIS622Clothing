@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IMenuItem, IDropDownItem } from '../models/IMenuItem';
+import { IMenuItem } from '../../models/IMenuItem';
 
 @Component({
   selector: 'top-menu', 
@@ -8,7 +8,6 @@ import { IMenuItem, IDropDownItem } from '../models/IMenuItem';
 })
 
 export class TopMenuComponent {
-  searchQuery: string = '';
   public menu: IMenuItem = {
     logo: 'assets/images/logo.png',
     searchBox: true,
@@ -27,11 +26,5 @@ export class TopMenuComponent {
     this.menu.cart = items.cart;
     this.menu.contact = items.contact;
     return this.menu;
-  }
-
-  //Called when the search box is clicked
-  onSearchInputChange(searchQuery: string): any {
-    console.log(searchQuery);
-    return searchQuery;
   }
 }

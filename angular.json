@@ -68,7 +68,8 @@
               "browserTarget": "SEIS622Clothing:build:production"
             },
             "development": {
-              "browserTarget": "SEIS622Clothing:build:development"
+              "browserTarget": "SEIS622Clothing:build:development",
+              "proxyConfig": "src/proxy.conf.json"
             }
           },
           "defaultConfiguration": "development"
