@@ -1,3 +1,4 @@
+//Interface for the Refresh Token
 export interface RefreshToken {
     userId: number;
     token: string;

@@ -21,10 +21,9 @@ export function tokenGetter() {
 @NgModule({
   declarations: [
     AppComponent,
-    TopMenuComponent,
     DropdownMenuComponent,
     MenuSearchComponent,
-
+    TopMenuComponent
   ],
   imports: [
     BrowserModule,
@@ -41,6 +40,7 @@ export function tokenGetter() {
     }),
 
   ],
+  exports: [TopMenuComponent],
   providers: [ MatSnackBar],
   bootstrap: [AppComponent]
 })

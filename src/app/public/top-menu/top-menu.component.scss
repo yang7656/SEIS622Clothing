@@ -5,7 +5,7 @@ ul {
   margin: 0 0;
   padding: 1px;
   height: 150px;
-  background-image: url('../../assets/images/banner_tile.jpg');
+  background-image: url('../../../assets/images/banner_tile.jpg');
   background-repeat: repeat;
   border-radius: 5px;
   border-color: #228b22;
@@ -71,9 +71,17 @@ li {
 }
 
 .signin {
-  margin-left: 20px;
-  
-  signin:hover {
+  margin-left: 40px;
+  a:link {
+    background-color: #4CAF50;
+    color: #fff;
+    padding: 16px;
+    font-size: 25px;
+    border: none;
+    text-decoration: none;
+  }
+
+  a:hover {
     text-shadow: hsl(0, 0%, 100%) 0 0 5px;
   }
 }

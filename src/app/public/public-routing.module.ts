@@ -4,7 +4,7 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 
 // Routes for child Module (publicModule). Since public module is lazy loaded in in the 
-// app-routing.module the full path is `/public/login` or `/public/regiser`
+// app-routing.module the full path is `/public/login` or `/public/register`
 const routes: Routes = [
   {
     path: 'login',
@@ -16,7 +16,7 @@ const routes: Routes = [
   },
   {
     path: '**',
-    redirectTo: 'login',
+    redirectTo: 'login', //update to home page once implemented
     pathMatch: 'full'
   }
 ];

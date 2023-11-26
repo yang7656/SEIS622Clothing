@@ -9,9 +9,7 @@ import { LOCALSTORAGE_TOKEN_KEY } from 'src/app/app.module';
 })
 export class DashboardComponent {
 
-  constructor(
-    private router: Router
-  ) {}
+  constructor(private router: Router) {}
 
   logout() {
     // Removes the jwt token from the local storage, so the user gets logged out & then navigate back to the "public" routes

@@ -59,7 +59,6 @@ export class RegisterComponent {
     }
     this.authService.register(this.convertRegister(this.registerForm)).pipe(
       // If registration success, navigate to login route
-      tap(() => this.router.navigate(['../login']))
-    ).subscribe();
+      tap(() => this.router.navigate(['../login']))).subscribe();
   }
 }

@@ -26,7 +26,7 @@ export class LoginComponent {
       return;
     }
     this.authService.login(this.loginForm.value).pipe(
-      // route to protected/dashboard, if login was successfull
+      // route to protected/dashboard, if login was successful
       tap(() => this.router.navigate(['../../protected/dashboard']))
     ).subscribe();
   }

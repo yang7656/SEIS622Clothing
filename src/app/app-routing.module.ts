@@ -6,7 +6,7 @@ const routes: Routes = [
   {
     // Lazy Loading the public module (all children routes will be under '/public/{route from lazy loaded module}')
     path: 'public',
-    loadChildren: () => import('./shared/public.module').then(m => m.PublicModule)
+    loadChildren: () => import('./public/public.module').then(m => m.PublicModule)
   },
   {
     // Lazy Loading the protected module (all children routes will be under '/protected/{route from lazy loaded module}')

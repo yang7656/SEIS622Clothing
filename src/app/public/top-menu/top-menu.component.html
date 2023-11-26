@@ -10,10 +10,10 @@
   </li>
   <li class="signin">
     <div *ngIf="menu.userSignIn; else loggedIn"><a [routerLink]="['../login']">Sign In</a></div>
-    <ng-template #loggedIn><a [routerLink]="['../myaccount']"><img src="assets/images/green_user_icon.png" class="userIcon" alt="User logged in" /></a></ng-template>
+    <ng-template #loggedIn><a [routerLink]="['../../protected/myaccount']"><img src="assets/images/green_user_icon.png" class="userIcon" alt="My Account" /></a></ng-template>
   </li>
   <li class="cart-image" *ngIf="menu.cart">
-    <button class="cart-button"><img src="assets/images/cart.png" alt="View Your Cart" class="cart"></button>
+    <button class="cart-button" [routerLink]="['../../protected/cart']" ><img src="assets/images/cart.png" alt="View Your Cart" class="cart"></button>
   </li>
   <li class="contact">
     <a href={{menu.contact}}>Contact Us</a>

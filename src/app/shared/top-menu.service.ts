@@ -13,7 +13,6 @@ export class TopMenuService implements OnInit {
   private topMenuComponent: TopMenuComponent = new TopMenuComponent();
   private dropDownMenuComponent: DropdownMenuComponent = new DropdownMenuComponent();
   private menuUrl = 'assets/data/menu-items.json';
-  private dropDownMenuUrl = 'assets/data/dropdownmenu-items.json';
   public menu: IMenuItem = this.topMenuComponent.menu;
   public dropDownMenu: IDropDownItem[] = this.dropDownMenuComponent.dropDownMenu;
 
@@ -35,15 +34,5 @@ export class TopMenuService implements OnInit {
   public getMenu(menuUrl: string): IMenuItem {
     let jsonMenu = DataService.getData(menuUrl);
     return this.topMenuComponent.mapMenu(jsonMenu);
-  }
-
-  //Called when the search box is clicked
-  public updateSearchQuery(searchQuery: string) {
-    //Yet to be implemented:  update the search query
-  }
-
-  //Called when a dropdown item is clicked
-  public updateMenuItemLabel(index: number, newLabel: string) {
-    //Yet to be implemented: update the menu item label
   }
 }
