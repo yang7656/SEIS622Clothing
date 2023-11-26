@@ -17,16 +17,6 @@ export class DropdownMenuComponent {
   {"pageName": "Tank Tops", "link": "/tanktops"},
   {"pageName": "Jackets", "link": "/jackets"}];
 
-  //Called when the dropdown menu is moused over
-  dropDownMouseOver() {
-    this.isDropDownOpen = true;
-  }
-
-  //Called when the dropdown menu is moused out
-  dropDownMouseOut() {
-    this.isDropDownOpen = false;
-  }
-
   //Takes in a JSON object and maps it to the IDropDownItem interface
   public mapDropDown(items: any): IDropDownItem[] {
     for (let i = 0; i < items.length; i++) {

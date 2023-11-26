@@ -4,7 +4,7 @@ import { AppComponent } from './app.component';
 import { TopMenuComponent } from './shared/top-menu/top-menu.component';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-import { DropdownMenuComponent } from './public/dropdown-menu/dropdown-menu.component';
+import { DropdownMenuComponent } from './shared/dropdown-menu/dropdown-menu.component';
 import { MenuSearchComponent } from './shared/menu-search/menu-search.component';
 import { AppRoutingModule } from './app-routing.module';
 import { MatSnackBar } from '@angular/material/snack-bar';

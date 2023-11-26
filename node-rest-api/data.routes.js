@@ -10,7 +10,6 @@ const userRoutes = path.join(__dirname, '../src/assets/data/customer_data.json')
 const imagesDirectory = path.join(__dirname, '../src/assets/images/products');
 
 app.use(cors());
-
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
@@ -22,8 +21,8 @@ fs.readFile(userRoutes, (err, data) => {
     let users = JSON.parse(data);
 });
 
-app.listen(userPort, () => console.log(`Running on port ${userPort}`));
-app.listen(imagePort, () => console.log(`Running on port ${imagePort}`));
+app.listen(userPort, () => console.log(`User data service is running on port ${userPort}`));
+app.listen(imagePort, () => console.log(`Image data service is running on port ${imagePort}`));
 
 
 app.get('/users/:id', (req, res) => {
