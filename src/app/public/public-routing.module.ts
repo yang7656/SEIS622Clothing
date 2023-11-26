@@ -16,7 +16,7 @@ const routes: Routes = [
   },
   {
     path: '**',
-    redirectTo: 'login', //update to home page once implemented
+    redirectTo: 'app-root', //update to home page once implemented
     pathMatch: 'full'
   }
 ];

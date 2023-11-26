@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { IMenuItem, IDropDownItem } from '../models/IMenuItem';
-import { DataService } from './data-service.service';
-import { TopMenuComponent } from '../public/top-menu/top-menu.component';
+import { TopMenuComponent } from './top-menu/top-menu.component';
 import { OnInit } from '@angular/core';
 import { DropdownMenuComponent } from '../public/dropdown-menu/dropdown-menu.component';
 
@@ -20,19 +19,14 @@ export class TopMenuService implements OnInit {
 
   //Periodically checks for changes in the menu
   ngOnInit(): void {
-    //Refreshes the Top Menu
-    let jsonMenu = DataService.getData(this.menuUrl).subscribe(data => {
-      this.menu = this.topMenuComponent.mapMenu(data);
-    });
-    //Refreshes the Dropdown Menu
-    let jsonDropDownMenu = DataService.getData(this.menuUrl).subscribe(data => {
-      this.dropDownMenu = this.dropDownMenuComponent.mapDropDown(data);
-    });
+    setInterval(() => {
+      this.menu = this.getMenu(this.menuUrl);
+    }, 1000);
   }
 
   //Uses the data service to get the menu from the JSON file
   public getMenu(menuUrl: string): IMenuItem {
-    let jsonMenu = DataService.getData(menuUrl);
-    return this.topMenuComponent.mapMenu(jsonMenu);
+    this.topMenuComponent.mapMenu(this.menuUrl);
+    return this.menu;
   }
 }

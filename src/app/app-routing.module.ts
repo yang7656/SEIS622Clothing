@@ -10,7 +10,7 @@ const routes: Routes = [
   },
   {
     // Lazy Loading the protected module (all children routes will be under '/protected/{route from lazy loaded module}')
-    // The guard will check if the user is having a jwt, otherwise he will be redirected to the base route
+    // The guard will check if the user is having a jwt, otherwise they will be redirected to the base route
     path: 'protected',
     canActivate: [AuthGuard],
     loadChildren: () => import('./protected/protected.module').then(m => m.ProtectedModule)

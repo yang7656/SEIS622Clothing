@@ -1,14 +1,15 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
-import { TopMenuComponent } from './public/top-menu/top-menu.component';
+import { TopMenuComponent } from './shared/top-menu/top-menu.component';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { DropdownMenuComponent } from './public/dropdown-menu/dropdown-menu.component';
-import { MenuSearchComponent } from './public/menu-search/menu-search.component';
+import { MenuSearchComponent } from './shared/menu-search/menu-search.component';
 import { AppRoutingModule } from './app-routing.module';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { JwtModule } from '@auth0/angular-jwt';
+import { NewArrivalComponent } from './shared/new-arrival/new-arrival.component';
 
 //Key for local storage
 export const LOCALSTORAGE_TOKEN_KEY = 'access_token';
@@ -23,7 +24,8 @@ export function tokenGetter() {
     AppComponent,
     DropdownMenuComponent,
     MenuSearchComponent,
-    TopMenuComponent
+    TopMenuComponent,
+    NewArrivalComponent
   ],
   imports: [
     BrowserModule,
@@ -34,13 +36,13 @@ export function tokenGetter() {
       config: {
         tokenGetter: () => {
           return localStorage.getItem('access_token');
-          allowedDomains: ['localhost:8080'];
+          allowedDomains: ['localhost:8000'];
         }
       }
     }),
 
   ],
-  exports: [TopMenuComponent],
+  exports: [TopMenuComponent, MenuSearchComponent, DropdownMenuComponent, NewArrivalComponent],
   providers: [ MatSnackBar],
   bootstrap: [AppComponent]
 })

@@ -2,10 +2,12 @@ const path = require('path');
 const express = require('express');
 const app = express();
 const cors = require('cors');
-const port = 8000;
+const userPort = 8000;
+const imagePort = 3000;
 const fs = require('fs');
 const bodyParser = require('body-parser');
 const userRoutes = path.join(__dirname, '../src/assets/data/customer_data.json');
+const imagesDirectory = path.join(__dirname, '../src/assets/images/products');
 
 app.use(cors());
 
@@ -20,7 +22,9 @@ fs.readFile(userRoutes, (err, data) => {
     let users = JSON.parse(data);
 });
 
-app.listen(port, () => console.log(`Running on port ${port}`));
+app.listen(userPort, () => console.log(`Running on port ${userPort}`));
+app.listen(imagePort, () => console.log(`Running on port ${imagePort}`));
+
 
 app.get('/users/:id', (req, res) => {
     const id = req.params.id;
@@ -61,4 +65,21 @@ app.post('/register', (req, res) => {
         users.push(user);
         res.json(user);
     }
+});
+
+//From Shijun's code
+let imageFiles;
+
+fs.readdir(imagesDirectory, (err, files) => {
+  if (err) 
+  {
+    console.error('Error reading directory', err);
+    return;
+  }
+  imageFiles = files.filter(file => /\.(jpg|jpeg|png|gif)$/.test(file));
+});
+
+app.get('/images', (req, res) => 
+{
+  res.json(imageFiles);
 });

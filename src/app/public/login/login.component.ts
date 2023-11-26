@@ -16,10 +16,7 @@ export class LoginComponent {
     password: new FormControl(null, [Validators.required]),
   });
 
-  constructor(
-    private authService: AuthService,
-    private router: Router
-  ) { }
+  constructor(private authService: AuthService, private router: Router) { }
 
   login() {
     if (!this.loginForm.valid) {

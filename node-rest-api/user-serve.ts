@@ -10,11 +10,6 @@ export class UserServe {
 
   constructor(private http: HttpClient) { }
 
-  // Get all users
-  getUsers(): Observable<any> {
-    return this.http.get(this.apiUrl + 'users');
-  }
-
   // Get a user by ID
   getUser(id: string): Observable<any> {
     return this.http.get(this.apiUrl + 'users/' + id);
@@ -30,8 +25,5 @@ export class UserServe {
     return this.http.put(this.apiUrl + 'users/' + id, user);
   }
 
-  // Delete a user
-  deleteUser(id: string): Observable<any> {
-    return this.http.delete(this.apiUrl + 'users/' + id);
-  }
+  
 }
