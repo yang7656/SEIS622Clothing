@@ -2,9 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ProtectedRoutingModule } from './protected-routing.module';
 import { DashboardComponent } from './dashboard/dashboard.component';
-import { MatButtonModule } from '@angular/material/button';
-import { AppModule } from '../app.module';
-
+import { SharedModule } from '../shared/shared.module';
 @NgModule({
   declarations: [
     DashboardComponent
@@ -12,8 +10,7 @@ import { AppModule } from '../app.module';
   imports: [
     CommonModule,
     ProtectedRoutingModule, 
-    MatButtonModule,
-    AppModule
+    SharedModule
   ]
 })
 export class ProtectedModule { }
