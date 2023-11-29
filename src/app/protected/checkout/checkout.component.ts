@@ -1,15 +1,21 @@
-import { Component } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { AppModule } from "../../app.module";
+import { Component, OnInit } from '@angular/core';
+import { ICartItem } from '../../models/ICart';
+import { ShoppingCartService } from '../shopping-cart.service';
 
 @Component({
-    selector: 'app-checkout',
-    standalone: true,
-    templateUrl: './checkout.component.html',
-    styleUrl: './checkout.component.scss',
-    imports: [CommonModule, AppModule]
+  selector: 'app-checkout',
+  templateUrl: './checkout.component.html',
+  styleUrls: ['./checkout.component.scss']
 })
-export class CheckoutComponent {
-  constructor() {}
+export class CheckoutComponent implements OnInit {
+  cartItems: ICartItem[] = [];
 
+  constructor(private shoppingCartService: ShoppingCartService) {}
+
+  // Get the items in the shopping cart
+  ngOnInit(): void {
+    this.shoppingCartService.cartItems$.subscribe(items => {
+      this.cartItems = items;
+    });
+  }
 }

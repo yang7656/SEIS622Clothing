@@ -1,20 +1,53 @@
-.logout-container {
+.wholePage {
+  background-color: #aeb9ac;
+
+  h1 {
+    color: #25453d;
+    caret-color: #25453d;
+    width: 100%;
+    margin-left: 60px;
+    padding: 10px;
+    text-align: center;
+    font-size: 40px;
+  }
+
+  .dashboard-container {
     display: flex;
-    justify-content: center;
-    margin-top: 20px;
-  
+    flex-direction: column;
+    align-items: center;
+
     .custom-button {
-      background-color: #83ab93; // Choose your desired background color
-      color: #25453d;
-      padding: 10px 20px;
-      border: none;
-      border-radius: 4px;
+      background-color: #5c746a;
+      color: #eee8db;
+      padding: 10px;
+      font-size: 20px;
       cursor: pointer;
-      font-size: 16px;
-  
+      border: none;
+      border-radius: 5px;
+      margin-bottom: 20px;
+
       &:hover {
-        background-color: #2c387e; // Choose a darker shade for hover effect
+        background-color: #25453d;
       }
     }
   }
-  
+}
+
+.logout-container {
+  text-align: center;
+
+  .custom-button {
+    background-color: #5c746a;
+    color: #eee8db;
+    padding: 10px;
+    font-size: 20px;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    margin-top: 20px;
+
+    &:hover {
+      background-color: #25453d;
+    }
+  }
+}

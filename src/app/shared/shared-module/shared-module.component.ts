@@ -1,13 +1,13 @@
 import { Component } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { ImageService } from '../../../../node-rest-api/serve';
+import { OnInit } from '@angular/core';
 
 @Component({
   selector: 'shared-module',
   templateUrl: './shared-module.component.html',
   styleUrl: './shared-module.component.scss'
 })
-export class SharedModuleComponent {
+export class SharedModuleComponent implements OnInit{
   products: string[] = [];
 
   constructor(private imageService: ImageService) {}

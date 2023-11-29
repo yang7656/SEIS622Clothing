@@ -10,14 +10,10 @@ export class UserServe {
 
   constructor(private http: HttpClient) { }
 
+  // THese are all placeholders for now
   // Get a user by ID
   getUser(id: string): Observable<any> {
     return this.http.get(this.apiUrl + 'users/' + id);
-  }
-
-  // Add a new user
-  addUser(user: any): Observable<any> {
-    return this.http.post(this.apiUrl + 'users', user);
   }
 
   // Update a user
