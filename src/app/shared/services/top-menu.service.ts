@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
-import { IMenuItem, IDropDownItem } from '../models/IMenuItem';
-import { TopMenuComponent } from './top-menu/top-menu.component';
+import { IMenuItem, IDropDownItem } from '../../models/IMenuItem';
+import { TopMenuComponent } from '../top-menu/top-menu.component';
 import { OnInit } from '@angular/core';
-import { DropdownMenuComponent } from './dropdown-menu/dropdown-menu.component';
+import { DropdownMenuComponent } from '../dropdown-menu/dropdown-menu.component';
 
 @Injectable({
   providedIn: 'root'

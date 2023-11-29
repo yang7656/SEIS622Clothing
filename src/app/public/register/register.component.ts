@@ -1,7 +1,7 @@
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Component } from '@angular/core';
 import { CustomValidators } from '../validator';
-import { AuthService } from '../../shared/auth.service';
+import { AuthService } from '../../shared/services/auth.service';
 import { tap } from 'rxjs';
 import { Router } from '@angular/router';
 import { RegisterRequest } from 'src/app/models/IPublic';

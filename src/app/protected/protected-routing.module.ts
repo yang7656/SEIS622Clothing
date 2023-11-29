@@ -1,13 +1,32 @@
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { MyaccountComponent } from './myaccount/myaccount.component';
+import { CheckoutComponent } from './checkout/checkout.component';
+import { CartComponent } from './cart/cart.component';
+import { ShoppingComponent } from './shopping/shopping.component';
 
-// Routes for child Module (protectedModule). Since protected module is lazy loaded in in the 
-// app-routing.module the full path is `/protected/dashboard`
+// Routes for child Module (protectedModule). Since protected module is lazy loaded in in the app-routing.module the full path is `/protected/*`
 const routes: Routes = [
   {
     path: 'dashboard',
     component: DashboardComponent
+  },
+  {
+    path: 'myaccount',
+    component: MyaccountComponent
+  },
+  {
+    path: 'checkout',
+    component: CheckoutComponent
+  },
+  {
+    path: 'cart',
+    component: CartComponent
+  },
+  {
+    path: 'shopping',
+    component: ShoppingComponent
   },
   {
     path: '**',

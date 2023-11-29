@@ -13,10 +13,6 @@ const routes: Routes = [
     loadChildren: () => import('./protected/protected.module').then(m => m.ProtectedModule)
   },
   {
-    path: 'shared',
-    loadChildren: () => import('./shared/shared.module').then(m => m.SharedModule)
-  },
-  {
     path: '**',
     redirectTo: 'public',
     pathMatch: 'full'

@@ -2,12 +2,13 @@ const path = require('path');
 const express = require('express');
 const app = express();
 const cors = require('cors');
-const userPort = 8000;
-const imagePort = 3000;
 const fs = require('fs');
 const bodyParser = require('body-parser');
 const userRoutes = path.join(__dirname, '../src/assets/data/customer_data.json');
 const imagesDirectory = path.join(__dirname, '../src/assets/images/products');
+
+const userPort = 8000;
+const imagePort = 3000;
 
 app.use(cors());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -21,10 +22,11 @@ fs.readFile(userRoutes, (err, data) => {
     let users = JSON.parse(data);
 });
 
+// Set listeners for the API services
 app.listen(userPort, () => console.log(`User data service is running on port ${userPort}`));
 app.listen(imagePort, () => console.log(`Image data service is running on port ${imagePort}`));
 
-
+//Many of these are placeholders for the user data service
 app.get('/users/:id', (req, res) => {
     const id = req.params.id;
     const user = users.find(user => user.id === id);
@@ -66,19 +68,17 @@ app.post('/register', (req, res) => {
     }
 });
 
-//From Shijun's code
+/* For the shopping pages */
 let imageFiles;
 
 fs.readdir(imagesDirectory, (err, files) => {
-  if (err) 
-  {
+  if (err) {
     console.error('Error reading directory', err);
     return;
   }
   imageFiles = files.filter(file => /\.(jpg|jpeg|png|gif)$/.test(file));
 });
 
-app.get('/images', (req, res) => 
-{
+app.get('/images', (req, res) => {
   res.json(imageFiles);
 });
