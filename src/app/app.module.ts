@@ -6,12 +6,15 @@ import { AppComponent } from './app.component';
 import { NewArrivalComponent } from './new-arrival/new-arrival.component';
 import { ImageService } from '../../serve/serve';
 
-@NgModule({
-  declarations: [
+@NgModule
+({
+  declarations: 
+  [
     AppComponent,
     NewArrivalComponent
   ],
-  imports: [
+  imports: 
+  [
     BrowserModule,
     HttpClientModule
   ],

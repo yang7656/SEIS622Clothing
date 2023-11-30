@@ -13,7 +13,7 @@ export class NewArrivalComponent implements OnInit
 
   constructor(private imageService: ImageService) {}
   
-  ngOnInit(): void 
+  ngOnInit(): void
   {
     this.imageService.getImages().subscribe((data: any) => {
       this.products = data;
