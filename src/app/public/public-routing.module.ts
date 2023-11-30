@@ -20,7 +20,7 @@ const routes: Routes = [
   },
   {
     path: '**',
-    redirectTo: 'login', //this should be the main/home page
+    redirectTo: 'shopping', //this should be the main/home page
     pathMatch: 'full'
   }
 ];
