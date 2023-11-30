@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { SharedModule } from './shared/shared.module';
+import { PublicModule } from './public/public.module';
 
 //Key for local storage
 export const LOCALSTORAGE_TOKEN_KEY = 'access_token';
@@ -15,7 +16,7 @@ export function tokenGetter() {
   declarations: [
     AppComponent
   ],
-  imports: [SharedModule],
+  imports: [PublicModule, SharedModule],
   exports: [AppRoutingModule],
   providers: [ ],
   bootstrap: [AppComponent]

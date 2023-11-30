@@ -1,1 +1,13 @@
-<shared-module></shared-module>
+<div class="wholePage"><top-menu></top-menu>
+    <h1>NEW ARRIVALS</h1>
+    <div class="new-arrivals-container">
+        <div class="product-card" *ngFor="let product of products">
+            <img [src]="'assets/images/products/' + product" alt="New Arrival">
+            <div class="product-details">
+                <h2>{{ product.split('_')[0].toUpperCase() }}</h2>
+                <p>{{ product.split('_')[1].toUpperCase() + '&nbsp;&nbsp;&nbsp;&nbsp;' +
+                    product.split('_')[2].toUpperCase().substring(0, 3) }}</p>
+            </div>
+        </div>
+    </div>
+</div>

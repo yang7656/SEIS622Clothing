@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { CrudService } from '../services/crud.service';
 import { IUser } from '../../models/IUser';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @Component({
   selector: 'myaccount',
@@ -9,8 +10,8 @@ import { IUser } from '../../models/IUser';
   styleUrls: ['./myaccount.component.scss']
 })
 export class MyAccountComponent implements OnInit {
-  private user = {} as IUser;
-  private updateForm: FormGroup;
+  user = {} as IUser;
+  public updateForm: FormGroup;
 
   constructor(private userService: CrudService, private fb: FormBuilder) {
     this.updateForm = this.fb.group({

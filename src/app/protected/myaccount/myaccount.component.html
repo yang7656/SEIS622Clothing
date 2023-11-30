@@ -6,7 +6,7 @@
         <p>Username: {{ user.username }}</p>
         <p>Name: {{ user.firstname }} {{user.lastname }}</p>
         <p>Steet Address: {{ user.street_add }}, {{ user.street_add_2 }}</p>
-        <p>City: {{ user.city }}, {{ user.state }} {{ user.zip_code }}</p>
+        <p>City: {{ user.city }}, {{ user.state }} {{ user.zipcode }}</p>
         <p>Phone Number: {{ user.phone }}</p><br/>
         <form (ngSubmit)="updateUserData()" [formGroup]="updateForm">
             <div class="form-field">

@@ -1,21 +1,17 @@
 import { Component } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { AppModule } from "../../app.module";
 import { ICartItem } from '../../models/ICart';
 import { ShoppingCartService } from '../shopping-cart.service';
 import { OnInit } from '@angular/core';
 
 @Component({
     selector: 'app-cart',
-    standalone: true,
     templateUrl: './cart.component.html',
     styleUrl: './cart.component.scss',
-    imports: [CommonModule, AppModule]
 })
 export class CartComponent implements OnInit {
 
-    constructor(private CartItem: ICartItem, private shoppingCartService: ShoppingCartService) { }
-    private cartItems: ICartItem[] = [];
+    constructor(private shoppingCartService: ShoppingCartService) { }
+    public cartItems: ICartItem[] = [];
 
     // Get the items in the shopping cart
     ngOnInit(): void {

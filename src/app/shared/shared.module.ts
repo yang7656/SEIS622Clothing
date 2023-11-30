@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { SharedModuleComponent } from './shared-module/shared-module.component';
 import { DropdownMenuComponent } from './dropdown-menu/dropdown-menu.component';
 import { MenuSearchComponent } from './menu-search/menu-search.component';
 import { TopMenuComponent } from './top-menu/top-menu.component';
@@ -12,14 +11,19 @@ import { JwtModule } from '@auth0/angular-jwt';
 import { NotificationService } from './services/notification.service';
 
 @NgModule({
-  declarations: [SharedModuleComponent,
+  declarations: [
     DropdownMenuComponent,
     MenuSearchComponent,
     TopMenuComponent,
-    SharedModuleComponent
     ],
-  exports: [SharedModuleComponent,TopMenuComponent, MenuSearchComponent, DropdownMenuComponent, SharedModule],
-  imports: [CommonModule, BrowserModule,
+  exports: [
+    TopMenuComponent, 
+    MenuSearchComponent, 
+    DropdownMenuComponent
+  ],
+  imports: [
+    CommonModule, 
+    BrowserModule,
     FormsModule,
     HttpClientModule,
     AppRoutingModule,  
@@ -30,7 +34,8 @@ import { NotificationService } from './services/notification.service';
           allowedDomains: ['localhost:8000'];
         }
       }
-    })],
+    })
+  ],
 })
 export class SharedModule {
 

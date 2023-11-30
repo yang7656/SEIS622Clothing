@@ -17,4 +17,7 @@ export class DashboardComponent {
     this.router.navigate(['../../']);
   }
 
+  goTo(link: string) {
+    this.router.navigate(['../../' + link]);
+  }
 }

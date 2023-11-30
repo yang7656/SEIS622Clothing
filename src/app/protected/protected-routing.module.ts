@@ -3,7 +3,6 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { CheckoutComponent } from './checkout/checkout.component';
 import { CartComponent } from './cart/cart.component';
-import { ShoppingComponent } from './shopping/shopping.component';
 import { MyAccountComponent } from './myaccount/myaccount.component';
 
 // Routes for child Module (protectedModule). Since protected module is lazy loaded in in the app-routing.module the full path is `/protected/*`
@@ -23,10 +22,6 @@ const routes: Routes = [
   {
     path: 'cart',
     component: CartComponent
-  },
-  {
-    path: 'shopping',
-    component: ShoppingComponent
   },
   {
     path: '**',
