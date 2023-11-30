@@ -1,0 +1,26 @@
+<top-menu></top-menu>
+<div class="login-container">
+  <a [routerLink]="['/register']">Create Account</a>
+  <div class="custom-card">
+    <div class="card-title">Login</div>
+    <div class="card-content">
+      <form [formGroup]="loginForm" (ngSubmit)="login()">
+        <div class="form-field">
+          <input type="email" placeholder="Email" formControlName="email">
+          <div *ngIf="this.loginForm.get('email')?.touched && this.loginForm.get('email')?.hasError('required')"
+               class="error">Email is required</div>
+          <div *ngIf="this.loginForm.get('email')?.touched && this.loginForm.get('email')?.hasError('email')"
+               class="error">Email must be a valid Email</div>
+        </div>
+        <div class="form-field">
+          <input type="password" placeholder="Password" formControlName="password">
+          <div *ngIf="this.loginForm.get('password')?.touched && this.loginForm.get('password')?.hasError('required')"
+               class="error">Password is required</div>
+        </div>
+        <div class="button">
+          <button type="submit" [disabled]="!loginForm.valid">Login</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

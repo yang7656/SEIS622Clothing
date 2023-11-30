@@ -1,0 +1,17 @@
+<top-menu></top-menu>
+<div class="cart-container">
+    <h2>Cart</h2>
+    <div *ngFor="let item of cartItems" class="cart-item">
+        <div class="item-details">
+            <span>{{ item.name }}</span>
+            <span>Quantity: {{ item.quantity }}</span>
+            <span>Price: ${{ item.price * item.quantity }}</span>
+        </div>
+        <div class="item-actions">
+            <button (click)="removeItem(item)">Remove</button>
+        </div>
+    </div>
+    <div class="total">
+        <span>Total Price: ${{ calculateTotalPrice() }}</span>
+    </div>
+</div>

@@ -1,0 +1,7 @@
+{
+    "logo": "assets/images/logo.png",
+    "searchBox": true,
+    "userSignIn": true,
+    "cart": true,
+    "contact": "mailto: fashionpolice@seis-622.com"
+}

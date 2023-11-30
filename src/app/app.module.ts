@@ -1,24 +1,22 @@
 import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
-import { HttpClientModule } from '@angular/common/http';
-
 import { AppComponent } from './app.component';
-import { NewArrivalComponent } from './new-arrival/new-arrival.component';
-import { ImageService } from '../../serve/serve';
+import { AppRoutingModule } from './app-routing.module';
+import { SharedModule } from './shared/shared.module';
+import { PublicModule } from './public/public.module';
 
-@NgModule
-({
-  declarations: 
-  [
-    AppComponent,
-    NewArrivalComponent
-  ],
-  imports: 
-  [
-    BrowserModule,
-    HttpClientModule
-  ],
-  providers: [ImageService],
+//Key for local storage
+export const LOCALSTORAGE_TOKEN_KEY = 'access_token';
+
+//tokenGetter function for JwtModule
+export function tokenGetter() {
+  return localStorage.getItem(LOCALSTORAGE_TOKEN_KEY);
+}
+
+@NgModule({
+  declarations: [AppComponent],
+  imports: [PublicModule, SharedModule],
+  exports: [AppRoutingModule],
+  providers: [ ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
