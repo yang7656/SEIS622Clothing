@@ -9,7 +9,7 @@
     <menu-search></menu-search>
   </li>
   <li class="signin">
-    <div *ngIf="menu.userSignIn; else loggedIn"><a [routerLink]="['public/login']">Sign In</a></div>
+    <div *ngIf="!isAuthenticated(); else loggedIn"><a [routerLink]="['public/login']">Sign In</a></div>
     <ng-template #loggedIn><a [routerLink]="['protected/myaccount']"><img src="assets/images/green_user_icon.png" class="userIcon" alt="My Account" /></a></ng-template>
   </li>
   <li class="cart-image" *ngIf="menu.cart">

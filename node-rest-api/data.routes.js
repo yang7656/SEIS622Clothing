@@ -26,6 +26,27 @@ fs.readFile(userRoutes, (err, data) => {
 app.listen(userPort, () => console.log(`User data service is running on port ${userPort}`));
 app.listen(imagePort, () => console.log(`Image data service is running on port ${imagePort}`));
 
+/* ==============================================================
+===================== For the shopping pages ====================
+===============================================================*/
+let imageFiles;
+
+fs.readdir(imagesDirectory, (err, files) => {
+  if (err) {
+    console.error('Error reading directory', err);
+    return;
+  }
+  imageFiles = files.filter(file => /\.(jpg|jpeg|png|gif)$/.test(file));
+});
+
+app.get('/images', (req, res) => {
+  res.json(imageFiles);
+});
+
+/* ==============================================================
+===================== For the user services =====================
+===============================================================*/
+
 //Many of these are placeholders for the user data service
 app.get('/users/:id', (req, res) => {
     const id = req.params.id;
@@ -66,19 +87,4 @@ app.post('/register', (req, res) => {
         users.push(user);
         res.json(user);
     }
-});
-
-/* For the shopping pages */
-let imageFiles;
-
-fs.readdir(imagesDirectory, (err, files) => {
-  if (err) {
-    console.error('Error reading directory', err);
-    return;
-  }
-  imageFiles = files.filter(file => /\.(jpg|jpeg|png|gif)$/.test(file));
-});
-
-app.get('/images', (req, res) => {
-  res.json(imageFiles);
 });

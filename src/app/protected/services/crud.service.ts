@@ -24,11 +24,6 @@ export class CrudService {
       )
   }
 
-  // Get all users
-  GetUsers() {
-    return this.httpClient.get(`${this.REST_API}`);
-  }
-
   // Get single user data by ID
   GetUser(id:any): Observable<any> {
     let API_URL = `${this.REST_API}/read-user/${id}`;
@@ -59,5 +54,4 @@ export class CrudService {
     }
     return throwError(errorMessage);
   }
-
 }

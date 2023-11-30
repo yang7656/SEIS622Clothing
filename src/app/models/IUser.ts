@@ -1,4 +1,3 @@
-//Interface for user data
 export interface IUser {
     id: number,
     email: string,
@@ -12,7 +11,6 @@ export interface IUser {
     zipcode: number,
     phone: string,
     password: string,
-    role: string,
     token: string,
     refreshToken: string
 }
