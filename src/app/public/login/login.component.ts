@@ -10,13 +10,12 @@ import { AuthService } from '../../shared/services/auth.service';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent {
+  constructor(private authService: AuthService, private router: Router) { }
 
   loginForm: FormGroup = new FormGroup({
     email: new FormControl(null, [Validators.required, Validators.email]),
     password: new FormControl(null, [Validators.required]),
   });
-
-  constructor(private authService: AuthService, private router: Router) { }
 
   login() {
     if (!this.loginForm.valid) {

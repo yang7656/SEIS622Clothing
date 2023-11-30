@@ -9,17 +9,20 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from '../app-routing.module';
 import { JwtModule } from '@auth0/angular-jwt';
 import { NotificationService } from './services/notification.service';
+import { SharedshopComponent } from './sharedshop/sharedshop.component';
 
 @NgModule({
   declarations: [
     DropdownMenuComponent,
     MenuSearchComponent,
     TopMenuComponent,
+    SharedshopComponent,
     ],
   exports: [
     TopMenuComponent, 
     MenuSearchComponent, 
-    DropdownMenuComponent
+    DropdownMenuComponent,
+    SharedshopComponent
   ],
   imports: [
     CommonModule, 

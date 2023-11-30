@@ -5,12 +5,12 @@ import { AuthGuard } from './auth-guard/auth.guard';
 const routes: Routes = [
   {
     path: 'public',
-    loadChildren: () => import('./public/public.module').then(m => m.PublicModule)
+    loadChildren: () => import('./public/public.module').then(m => m.PublicModule) // Lazy load public module
   },
   {
     path: 'protected',
     canActivate: [AuthGuard],
-    loadChildren: () => import('./protected/protected.module').then(m => m.ProtectedModule)
+    loadChildren: () => import('./protected/protected.module').then(m => m.ProtectedModule) // Lazy load protected module
   },
   {
     path: '**',

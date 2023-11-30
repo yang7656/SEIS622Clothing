@@ -7,19 +7,21 @@ import { CartComponent } from './cart/cart.component';
 import { CheckoutComponent } from './checkout/checkout.component';
 import { MyAccountComponent } from './myaccount/myaccount.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { SafeshoppingComponent } from './safeshopping/safeshopping.component';
 
 @NgModule({
   declarations: [
     DashboardComponent,
     CheckoutComponent,
     MyAccountComponent,
-    CartComponent
+    CartComponent,
+    SafeshoppingComponent
   ],
   imports: [
     CommonModule,
     ProtectedRoutingModule, 
     SharedModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
   ]
 })
 export class ProtectedModule { }
