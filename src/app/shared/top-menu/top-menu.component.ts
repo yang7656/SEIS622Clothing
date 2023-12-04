@@ -30,6 +30,6 @@ export class TopMenuComponent {
   }
 
   isAuthenticated(): boolean {
-    return <boolean>this.authService.canActivate();
+    return false; //<boolean>this.authService.canActivate();
   }
 }
