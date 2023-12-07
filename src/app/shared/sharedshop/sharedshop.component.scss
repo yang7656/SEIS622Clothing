@@ -1,38 +1,36 @@
-h1 {
-    color: #25453d;
-    caret-color: #25453d;
-    width: 100%; 
-    margin-left: 60px;
-    padding: 10px;
-    text-align: center;
-    font-size: 40px;
+.wholePage {
+    background-color: #aeb9ac;
+    padding: 20px; /* 添加一些内边距 */
 }
 
-h2 {
-    color: #eee8db;
-    caret-color: #25453d;
-    width: 100%; 
-    padding: 10px;
-    text-align: center;
-    font-size: 25px;
+.new-arrivals-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* 使产品卡居中 */
+    gap: 20px; /* 产品卡之间的间距 */
 }
 
-p {
-    color: #eee8db;
-    caret-color: #25453d;
-    width: 100%; 
+.product-card {
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #ffffff;
     padding: 10px;
-    text-align: center;
-    font-size: 20px;
+    border-radius: 10px;
+}
+
+.product-card img {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
 }
 
 .product-details {
-    background-color: #f5f5f5;
-    background-color: #5c746a;
     padding: 10px;
-    color: #eee8db;
+    text-align: center;
 }
 
-.wholePage {
-    background-color: #aeb9ac;
+h1 {
+    margin-left: 60px;
 }

@@ -1,1 +1,4 @@
-<input type="text" placeholder="Search..." ngModel="searchQuery" (input)="onSearchInputChange(searchQuery)" />
+<div class="search-box">
+    <input type="text" class="menu-search-input" placeholder="Search..." [(ngModel)]="searchQuery" (input)="onSearchInputChange(searchQuery)" />
+    <button (click)="onSearchInputChange(searchQuery)">🔍</button>
+</div>
