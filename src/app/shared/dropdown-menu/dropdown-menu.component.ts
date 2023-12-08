@@ -12,7 +12,7 @@ export class DropdownMenuComponent {
 
   public isDropDownOpen: boolean = false;
 
-  public dropDownMenu: IDropDownItem[] = [{"pageName": "TShirts", "link": "/tshirts"},
+  public dropDownMenu: IDropDownItem[] = [{"pageName": "T-Shirts", "link": "/tshirts"},
   {"pageName": "Hoodies", "link": "/hoodies"},
   {"pageName": "Tank Tops", "link": "/tanktops"},
   {"pageName": "Jackets", "link": "/jackets"}];

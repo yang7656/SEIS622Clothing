@@ -1,4 +1,3 @@
-<div class="dropdown" (mouseenter)="isDropDownOpen=true" (mouseleave)="isDropDownOpen=false">
-    <div class="dropbtn">Category</div>
+<div class="dropdown" (mouseenter)="isDropDownOpen=true" (mouseleave)="isDropDownOpen=false"><div class="dropbtn">Category</div>
     <div class="dropdown-content" *ngIf="isDropDownOpen"><a *ngFor="let item of dropDownMenu" [routerLink]="[item.link]">{{ item.pageName }}</a></div>
 </div>

@@ -8,31 +8,12 @@ import { SafeshoppingComponent } from './safeshopping/safeshopping.component';
 
 // Routes for child Module (protectedModule). Since protected module is lazy loaded in in the app-routing.module the full path is `/protected/*`
 const routes: Routes = [
-  {
-    path: 'dashboard',
-    component: DashboardComponent
-  },
-  {
-    path: 'myaccount',
-    component: MyAccountComponent
-  },
-  {
-    path: 'checkout',
-    component: CheckoutComponent
-  },
-  {
-    path: 'cart',
-    component: CartComponent
-  },
-  {
-    path: 'shopping',
-    component: SafeshoppingComponent
-  },
-  {
-    path: '**',
-    redirectTo: 'login',
-    pathMatch: 'full'
-  }
+  { path: 'dashboard', component: DashboardComponent },
+  { path: 'myaccount', component: MyAccountComponent },
+  { path: 'checkout',  component: CheckoutComponent  },
+  { path: 'cart', component: CartComponent },
+  { path: 'shopping', component: SafeshoppingComponent },
+  { path: '**', redirectTo: 'login', pathMatch: 'full' }
 ];
 
 @NgModule({

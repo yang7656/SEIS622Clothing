@@ -8,8 +8,10 @@ import { ShoppingComponent } from './shopping/shopping.component';
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
-  { path:'shopping', component: ShoppingComponent },
-  { path: '**', redirectTo: 'shopping', pathMatch: 'full' }
+  { path: 'protected/cart', loadChildren: () => import('../protected/protected.module').then(m => m.ProtectedModule) },
+  { path: 'protected/myaccount', loadChildren: () => import('../protected/protected.module').then(m => m.ProtectedModule) },
+  { path:'', component: ShoppingComponent },
+  { path: '**', redirectTo: 'login', pathMatch: 'full' }
 ];
 
 @NgModule({
