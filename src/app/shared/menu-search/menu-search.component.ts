@@ -42,7 +42,11 @@ export class MenuSearchComponent {
   }
 
   private filterProducts(query: string): any[] {
-    if (!query) return this.products;
+    if (!query) 
+    {
+      return this.products;
+    }
+    
     return this.products.filter(product =>
       product.toLowerCase().includes(query.toLowerCase())
     );
