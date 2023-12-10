@@ -1,13 +1,13 @@
 .wholePage {
     background-color: #aeb9ac;
-    padding: 20px; /* 添加一些内边距 */
+    padding: 20px; 
 }
 
-.new-arrivals-container {
+.new-arrivals-container, .search-container {
     display: flex;
     flex-wrap: wrap;
-    justify-content: center; /* 使产品卡居中 */
-    gap: 20px; /* 产品卡之间的间距 */
+    justify-content: center; 
+    gap: 20px; 
 }
 
 .product-card {

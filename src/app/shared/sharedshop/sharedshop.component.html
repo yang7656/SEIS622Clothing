@@ -1,5 +1,5 @@
 <top-menu></top-menu>
-<div class="wholePage" *ngIf="!filter">
+<div class="wholePage" *ngIf="!isSearch">
     <h1>NEW ARRIVALS</h1>
     <div class="new-arrivals-container">
         <div class="product-card" *ngFor="let product of products">
@@ -13,7 +13,7 @@
     </div>
 </div>
 
-<div class="wholePage" *ngIf="filter">
+<div class="wholePage" *ngIf="isSearch">
     <h1>SEARCH RESULT</h1>
     <div class="search-container">
         <div class="product-card" *ngFor="let item of searchItems">

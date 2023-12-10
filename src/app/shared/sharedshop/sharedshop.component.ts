@@ -9,10 +9,13 @@ import { SearchService } from '../services/search.service';
   styleUrl: './sharedshop.component.scss'
 })
 export class SharedshopComponent implements OnInit{
+
   title = "SEIS-622 Northern Streetwear - From the Woods to the Pavement";
   products: string[] = [];
   searchItems: string[] = [];
   filter: boolean = false;
+  isSearch: boolean = false;
+
 
   constructor(private imageService: ImageService, private searchService: SearchService) {}
   
@@ -22,16 +25,14 @@ export class SharedshopComponent implements OnInit{
       this.products = data;
     });
 
+    this.searchService.isSearch.subscribe(active => {
+      this.isSearch = active;
+      console.log("Is searching: " + this.isSearch)
+    });
+    
     this.searchService.filteredProducts.subscribe(
       filteredProducts => {
         this.searchItems = filteredProducts;
-        
-        if (this.searchItems.length < 24)
-        {
-          this.filter = true;
-        }
-        
-        
       }
     );
   }

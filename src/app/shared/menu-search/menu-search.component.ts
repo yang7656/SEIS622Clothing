@@ -10,43 +10,52 @@ import { SearchService } from '../services/search.service';
 })
 export class MenuSearchComponent {
 
+  isSearch: boolean = false;
   searchQuery: string = '';
   products: any[] = [];
   filteredProducts: string[] = [];
   searchUpdated: Subject<string> = new Subject<string>();
 
 
-  constructor(private http: HttpClient, private searchService: SearchService) {
+  constructor(private http: HttpClient, private searchService: SearchService) 
+  {
     this.fetchProducts();
     this.searchUpdated.pipe(
       debounceTime(300),
       distinctUntilChanged()
     ).subscribe(value => {
       this.filteredProducts = this.filterProducts(value);
-      console.log(this.filteredProducts)
     });
   }
 
-  fetchProducts(): void {
+  fetchProducts(): void 
+  {
     this.http.get<any[]>('http://localhost:3000/images').subscribe(
-      data => {
+      data => 
+      {
         this.products = data;
         this.filteredProducts = data;
       },
-      error => {
+      error => 
+      {
         console.error('Error fetching products', error);
       }
     );
   }
 
   // update input search box content
-  onSearchInputChange(query: string): void {
+  onSearchInputChange(query: string): void 
+  {
     this.searchUpdated.next(query);
+    this.searchService.updateIsSearch(query.length > 0);
   }
 
-  private filterProducts(query: string): string[] {
+  private filterProducts(query: string): string[] 
+  {
+  
     if (!query) 
     {
+      this.isSearch = false;
       return this.products;
     }
     
@@ -59,6 +68,5 @@ export class MenuSearchComponent {
 
     return filtered;
   }
-
 
 }
