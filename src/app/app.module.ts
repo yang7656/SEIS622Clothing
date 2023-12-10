@@ -14,7 +14,11 @@ export function tokenGetter() {
 
 @NgModule({
   declarations: [AppComponent],
-  imports: [PublicModule, SharedModule],
+  imports: [
+    PublicModule, 
+    SharedModule, 
+    AppRoutingModule
+  ],
   exports: [AppRoutingModule],
   providers: [ ],
   bootstrap: [AppComponent]

@@ -4,25 +4,11 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { ShoppingComponent } from './shopping/shopping.component';
 
-// Routes for child Module (publicModule). Since public module is lazy loaded in the app-routing.module the full path is `/public/*`
 const routes: Routes = [
-  {
-    path: 'login',
-    component: LoginComponent
-  },
-  {
-    path: 'register',
-    component: RegisterComponent
-  },
-  {
-    path:'shopping',
-    component: ShoppingComponent
-  },
-  {
-    path: '**',
-    redirectTo: 'shopping', //this should be the main/home page
-    pathMatch: 'full'
-  }
+  { path: 'login', component: LoginComponent },
+  { path: 'register', component: RegisterComponent },
+  { path: '', component: ShoppingComponent },
+  { path: '**', redirectTo: '', pathMatch: 'full' }
 ];
 
 @NgModule({

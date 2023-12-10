@@ -12,12 +12,10 @@ export class DropdownMenuComponent {
 
   public isDropDownOpen: boolean = false;
 
-  public dropDownMenu: IDropDownItem[] = [
-                                          {"pageName": "TShirts", "link": "/tshirts"},
-                                          {"pageName": "Hoodies", "link": "/hoodies"},
-                                          {"pageName": "Tank Tops", "link": "/tanktops"},
-                                          {"pageName": "Jackets", "link": "/jackets"}
-                                         ];
+  public dropDownMenu: IDropDownItem[] = [{"pageName": "T-Shirts", "link": "/tshirts"},
+  {"pageName": "Hoodies", "link": "/hoodies"},
+  {"pageName": "Tank Tops", "link": "/tanktops"},
+  {"pageName": "Jackets", "link": "/jackets"}];
 
   //Takes in a JSON object and maps it to the IDropDownItem interface
   public mapDropDown(items: any): IDropDownItem[] {

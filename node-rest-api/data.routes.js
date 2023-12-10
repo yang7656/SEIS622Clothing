@@ -14,18 +14,6 @@ app.use(cors());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
-fs.readFile(userRoutes, (err, data) => {
-    if (err) {
-        console.error(err);
-        return;
-    }
-    let users = JSON.parse(data);
-});
-
-// Set listeners for the API services
-app.listen(userPort, () => console.log(`User data service is running on port ${userPort}`));
-app.listen(imagePort, () => console.log(`Image data service is running on port ${imagePort}`));
-
 /* ==============================================================
 ===================== For the shopping pages ====================
 ===============================================================*/
@@ -46,6 +34,16 @@ app.get('/images', (req, res) => {
 /* ==============================================================
 ===================== For the user services =====================
 ===============================================================*/
+
+let users;
+
+fs.readFile(userRoutes, (err, data) => {
+    if (err) {
+        console.error(err);
+        return;
+    }
+    users = JSON.parse(data);
+});
 
 //Many of these are placeholders for the user data service
 app.get('/users/:id', (req, res) => {
@@ -88,3 +86,8 @@ app.post('/register', (req, res) => {
         res.json(user);
     }
 });
+
+
+// Set listeners for the API services
+app.listen(userPort, () => console.log(`User data service is running on port ${userPort}`));
+app.listen(imagePort, () => console.log(`Image data service is running on port ${imagePort}`));

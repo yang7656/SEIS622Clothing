@@ -13,7 +13,6 @@ export class SharedshopComponent implements OnInit{
   title = "SEIS-622 Northern Streetwear - From the Woods to the Pavement";
   products: string[] = [];
   searchItems: string[] = [];
-  filter: boolean = false;
   isSearch: boolean = false;
 
 
