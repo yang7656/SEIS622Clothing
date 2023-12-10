@@ -21,7 +21,9 @@ import { ShoppingComponent } from './shopping/shopping.component';
     SharedModule
   ],
   exports: [
-    ShoppingComponent
+    ShoppingComponent,
+    LoginComponent,
+    RegisterComponent
   ]
 })
 export class PublicModule { }
