@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { ImageService } from '../../../../node-rest-api/serve';
 import { OnInit } from '@angular/core';
+import { SearchService } from '../services/search.service';
 
 @Component({
   selector: 'sharedshop',
@@ -10,15 +11,28 @@ import { OnInit } from '@angular/core';
 export class SharedshopComponent implements OnInit{
   title = "SEIS-622 Northern Streetwear - From the Woods to the Pavement";
   products: string[] = [];
+  searchItems: string[] = [];
   filter: boolean = false;
 
-  constructor(private imageService: ImageService) {}
+  constructor(private imageService: ImageService, private searchService: SearchService) {}
   
   ngOnInit(): void 
   {
     this.imageService.getImages().subscribe((data: any) => {
       this.products = data;
-      console.log(this.products[0].split('_')[2].toUpperCase().substring(0, 3));
     });
+
+    this.searchService.filteredProducts.subscribe(
+      filteredProducts => {
+        this.searchItems = filteredProducts;
+        
+        if (this.searchItems.length < 24)
+        {
+          this.filter = true;
+        }
+        
+        
+      }
+    );
   }
 }

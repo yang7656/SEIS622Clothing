@@ -9,6 +9,7 @@ import { AuthGuard } from 'src/app/auth-guard/auth.guard';
 })
 
 export class TopMenuComponent {
+
   public menu: IMenuItem = {
     logo: 'assets/images/logo.png',
     searchBox: true,
@@ -32,4 +33,5 @@ export class TopMenuComponent {
   isAuthenticated(): boolean {
     return false; //<boolean>this.authService.canActivate();
   }
+
 }

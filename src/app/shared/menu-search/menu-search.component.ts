@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component  } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { debounceTime, distinctUntilChanged, Subject } from 'rxjs';
+import { SearchService } from '../services/search.service';
 
 @Component({
   selector: 'menu-search',
@@ -14,7 +15,8 @@ export class MenuSearchComponent {
   filteredProducts: string[] = [];
   searchUpdated: Subject<string> = new Subject<string>();
 
-  constructor(private http: HttpClient) {
+
+  constructor(private http: HttpClient, private searchService: SearchService) {
     this.fetchProducts();
     this.searchUpdated.pipe(
       debounceTime(300),
@@ -37,19 +39,25 @@ export class MenuSearchComponent {
     );
   }
 
+  // update input search box content
   onSearchInputChange(query: string): void {
     this.searchUpdated.next(query);
   }
 
-  private filterProducts(query: string): any[] {
+  private filterProducts(query: string): string[] {
     if (!query) 
     {
       return this.products;
     }
     
-    return this.products.filter(product =>
+    const filtered = this.products.filter(product =>
       product.toLowerCase().includes(query.toLowerCase())
     );
+
+    this.searchService.updateFilteredProducts(filtered);
+
+
+    return filtered;
   }
 
 
