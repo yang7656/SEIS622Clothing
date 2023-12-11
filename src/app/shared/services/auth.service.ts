@@ -17,12 +17,13 @@ export class AuthService {
 
   // Login a user
   login(loginRequest: LoginRequest): Observable<LoginResponse> {
-    console.log(loginRequest)
+    console.log('AuthService#login called');
     return this.http.post<LoginResponse>('http://localhost:8000/login', loginRequest).pipe(
       tap((res: any) => {
         localStorage.setItem(LOCALSTORAGE_TOKEN_KEY, res.body.id_number);
         this.notificationService.showSuccess('Login successful');
-        this.loggedIn = new BehaviorSubject<boolean>(true);
+        this.loggedIn.next(true);
+        console.log('AuthService#loggedIn updated to true');
       })
     );
   }

@@ -26,7 +26,6 @@ export class SharedshopComponent implements OnInit{
 
     this.searchService.isSearch.subscribe(active => {
       this.isSearch = active;
-      console.log("Is searching: " + this.isSearch)
     });
     
     this.searchService.filteredProducts.subscribe(
