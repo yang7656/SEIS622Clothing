@@ -46,18 +46,42 @@ fs.readFile(userRoutes, (err, data) => {
 });
 
 //Many of these are placeholders for the user data service
-app.get('/users/:id', (req, res) => {
-    const id = req.params.id;
-    const user = users.find(user => user.id === id);
-    res.json(user);
+app.get('/users', (req, res) => {
+    //console.log(req.params.id);
+    //const target = users.find(user => user.id === req.params.id);
+    res.json(users);
 });
 
-app.post('/users', (req, res) => {
+
+// check login info
+app.post('/login', (req, res) => {
+
+    const target = users.find(user => user.email === req.body.email);
+    
+    if (!target || target.password != req.body.password)
+    {
+        res.status(404);
+        return res.json({error: "Invalid email or password."})
+    }
+    else
+    {
+        res.status(200).json({ message: 'Login successfully!', body: target });
+    }
+});
+
+//add new user
+app.post('/register', (req, res) => {
     const user = req.body;
+    console.log(user)
     users.push(user);
-    res.json(user);
+    return res.status(200).json({ message: 'Register successfully!' });
 });
 
+
+
+
+
+/**
 app.put('/users/:id', (req, res) => {
     const id = req.params.id;
     const user = req.body;
@@ -66,15 +90,8 @@ app.put('/users/:id', (req, res) => {
     res.json(user);
 });
 
-app.post('/login', (req, res) => {
-    const user = req.body;
-    const index = users.findIndex(user => user.email === user.email && user.password === user.password);
-    if (index !== -1) {
-        res.json(users[index]);
-    } else {
-        res.sendStatus(401);
-    }
-});
+
+
 
 app.post('/register', (req, res) => {
     const user = req.body;
@@ -86,7 +103,7 @@ app.post('/register', (req, res) => {
         res.json(user);
     }
 });
-
+*/
 
 // Set listeners for the API services
 app.listen(userPort, () => console.log(`User data service is running on port ${userPort}`));

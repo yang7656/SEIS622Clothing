@@ -25,12 +25,12 @@ export interface RefreshToken {
     username: string;
     firstname: string;
     lastname: string;
-    street_add: string,
-    street_add_2: string,
-    city: string,
-    state: string,
-    zipcode: number,
-    phone: string
+    //street_add: string,
+    //street_add_2: string,
+    //city: string,
+    //state: string,
+    //zipcode: number,
+    //phone: string
     password: string;
   }
   

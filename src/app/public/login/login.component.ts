@@ -10,7 +10,10 @@ import { AuthService } from '../../shared/services/auth.service';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent {
-  constructor(private authService: AuthService, private router: Router) { }
+
+  correctInput: boolean = true;
+
+  constructor(private authService: AuthService, private router: Router) {}
 
   loginForm: FormGroup = new FormGroup({
     email: new FormControl(null, [Validators.required, Validators.email]),
@@ -21,10 +24,27 @@ export class LoginComponent {
     if (!this.loginForm.valid) {
       return;
     }
+    
+    /** 
+     * Michael original code for navigate after correct login
+     * 
     this.authService.login(this.loginForm.value).pipe(
       // route to protected/dashboard, if login was successful
       tap(() => this.router.navigate(['../../protected/dashboard']))
     ).subscribe();
+    */
+    
+    // red sentence "Incorrect email or password" will show up if an incorrect email or password was entered
+    this.authService.login(this.loginForm.value).subscribe(
+      response => {
+        this.router.navigate(['../../protected/dashboard']); 
+      },
+      error => {
+        console.error('Login error:', error);
+        this.correctInput = false;
+      }
+    );
+
   }
 
 }

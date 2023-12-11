@@ -18,12 +18,12 @@ export class RegisterComponent {
     username: new FormControl(null, [Validators.required]),
     firstname: new FormControl(null, [Validators.required]),
     lastname: new FormControl(null, [Validators.required]),
-    street_add: new FormControl(null, [Validators.required]),
-    street_add_2: new FormControl(null),
-    city: new FormControl(null, [Validators.required]),
-    state: new FormControl(null, [Validators.required]),
-    zipcode: new FormControl(null, [Validators.required]),
-    phone: new FormControl(null, [Validators.required]),
+    //street_add: new FormControl(null, [Validators.required]),
+    //street_add_2: new FormControl(null),
+    //city: new FormControl(null, [Validators.required]),
+    //state: new FormControl(null, [Validators.required]),
+    //zipcode: new FormControl(null, [Validators.required]),
+    //phone: new FormControl(null, [Validators.required]),
     password: new FormControl(null, [Validators.required]),
     passwordConfirm: new FormControl(null, [Validators.required])
   },
@@ -43,22 +43,39 @@ export class RegisterComponent {
       username: register.value.username,
       firstname: register.value.firstname,
       lastname: register.value.lastname,
-      street_add: register.value.street_add,
-      street_add_2: register.value.street_add_2,
-      city: register.value.city,
-      state: register.value.state,
-      zipcode: register.value.zipcode,
-      phone: register.value.phone,
+      //street_add: register.value.street_add,
+      //street_add_2: register.value.street_add_2,
+      //city: register.value.city,
+      //state: register.value.state,
+      //zipcode: register.value.zipcode,
+      //phone: register.value.phone,
       password: register.value.password
     };
   }
 
   register() {
     if (!this.registerForm.valid) {
+      alert("At least one field has invalid value.")
       return;
     }
+    
+    /** 
+     * Michael original code for navigate after correct login
+     * 
     this.authService.register(this.convertRegister(this.registerForm)).pipe(
       // If registration success, navigate to login route
       tap(() => this.router.navigate(['../login']))).subscribe();
+    */
+
+    this.authService.register(this.convertRegister(this.registerForm)).subscribe(
+      response => {
+        alert('Register successful: ' +  this.registerForm.value.username);
+        this.router.navigate(['../login']); 
+      },
+      error => {
+        console.error('Login error:', error);
+      }
+    );
+
   }
 }

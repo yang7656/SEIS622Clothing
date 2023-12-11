@@ -7,11 +7,12 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class AuthGuard {
+  
 
   constructor(
     private router: Router,
     private jwtService: JwtHelperService
-  ) { }
+  ) { }  
 
   canActivate(): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
     if (this.jwtService.isTokenExpired()) {
@@ -20,5 +21,8 @@ export class AuthGuard {
     } else {
       return true;
     }
+    
   }
+
+  
 }

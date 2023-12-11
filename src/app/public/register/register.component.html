@@ -42,11 +42,11 @@
             *ngIf="this.registerForm.get('passwordConfirm')?.touched && this.registerForm.get('passwordConfirm')?.hasError('required')"
             class="error">Password Confirmation is required</div>
         </div>
-        <div
+        <div style="color: red;"
           *ngIf="this.registerForm.get('passwordConfirm')?.dirty && this.registerForm.hasError('passwordsNotMatching')"
           class="error">The provided password and confirmation do not match</div>
         <div class="button">
-          <button type="submit" [disabled]="!registerForm.valid">Register</button>
+          <button type="submit" >Register</button>
         </div>
       </form>
     </div>
