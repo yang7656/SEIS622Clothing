@@ -1,0 +1,13 @@
+<div class="container">
+    <h3>{{product.name}}</h3>
+    <img [src]="product.imageUrl" [alt]="product.name"/>
+
+    <div class="product">
+        
+        <span class="product-details">
+            {{product.serialNumber}},
+            {{product.price}}
+        </span>
+        <button>Add to Cart</button>
+    </div>
+</div>

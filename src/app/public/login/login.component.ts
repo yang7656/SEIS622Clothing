@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { tap } from 'rxjs/operators';
 import { Router } from '@angular/router';
 import { AuthService } from '../../shared/services/auth.service';
 
@@ -37,9 +36,7 @@ export class LoginComponent {
     // red sentence "Incorrect email or password" will show up if an incorrect email or password was entered
     this.authService.login(this.loginForm.value).subscribe({
       next: () => {
-        console.log('LoginComponent#login successful');
         this.router.navigate(['protected/dashboard']);
-        console.log('LoginComponent#navigate to /protected/dashboard');
       },
       error: (err) => {
         console.error('Login error:', err);

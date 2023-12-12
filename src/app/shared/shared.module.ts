@@ -16,7 +16,7 @@ import { SharedshopComponent } from './sharedshop/sharedshop.component';
     DropdownMenuComponent,
     MenuSearchComponent,
     TopMenuComponent,
-    SharedshopComponent,
+    SharedshopComponent
     ],
   exports: [
     TopMenuComponent, 

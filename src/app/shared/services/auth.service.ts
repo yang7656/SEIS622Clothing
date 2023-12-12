@@ -17,15 +17,15 @@ export class AuthService {
 
   // Login a user
   login(loginRequest: LoginRequest): Observable<LoginResponse> {
-    console.log('AuthService#login called');
+
     return this.http.post<LoginResponse>('http://localhost:8000/login', loginRequest).pipe(
       tap((res: any) => {
         localStorage.setItem(LOCALSTORAGE_TOKEN_KEY, res.body.id_number);
         this.notificationService.showSuccess('Login successful');
         this.loggedIn.next(true);
-        console.log('AuthService#loggedIn updated to true');
       })
     );
+
   }
 
   // Logout a user
@@ -43,7 +43,7 @@ export class AuthService {
   // Register a new user
   register(registerRequest: RegisterRequest): Observable<RegisterResponse> {
     return this.http.post<RegisterResponse>('http://localhost:8000/register', registerRequest).pipe(
-      tap((res: RegisterResponse) => this.notificationService.showSuccess('User created successfully'))
+      tap(() => this.notificationService.showSuccess('User created successfully'))
     );
   }
 

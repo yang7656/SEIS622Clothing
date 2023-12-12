@@ -2,13 +2,14 @@ import { Component } from '@angular/core';
 import { ImageService } from '../../../../node-rest-api/serve';
 import { OnInit } from '@angular/core';
 import { SearchService } from '../services/search.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'sharedshop',
   templateUrl: './sharedshop.component.html',
   styleUrl: './sharedshop.component.scss'
 })
-export class SharedshopComponent implements OnInit{
+export class SharedshopComponent implements OnInit {
 
   title = "SEIS-622 Northern Streetwear - From the Woods to the Pavement";
   products: string[] = [];
@@ -16,7 +17,7 @@ export class SharedshopComponent implements OnInit{
   isSearch: boolean = false;
 
 
-  constructor(private imageService: ImageService, private searchService: SearchService) {}
+  constructor(private imageService: ImageService, private searchService: SearchService, private router: Router) {}
   
   ngOnInit(): void 
   {
@@ -33,5 +34,10 @@ export class SharedshopComponent implements OnInit{
         this.searchItems = filteredProducts;
       }
     );
+  }
+
+  onImageClick(product: any) {
+    console.log("clicked: " + product);
+    this.router.navigate(['/product', product]);
   }
 }
