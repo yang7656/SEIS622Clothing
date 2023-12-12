@@ -65,10 +65,11 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "SEIS622Clothing:build:production"
+              "buildTarget": "SEIS622Clothing:build:production"
             },
             "development": {
-              "browserTarget": "SEIS622Clothing:build:development"
+              "proxyConfig": "src/proxy.conf.json",
+              "buildTarget": "SEIS622Clothing:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -76,7 +77,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "SEIS622Clothing:build"
+            "buildTarget": "SEIS622Clothing:build"
           }
         },
         "test": {
@@ -100,5 +101,8 @@
         }
       }
     }
+  },
+  "cli": {
+    "analytics": false
   }
 }
