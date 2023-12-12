@@ -36,7 +36,7 @@ export class LoginComponent {
     // red sentence "Incorrect email or password" will show up if an incorrect email or password was entered
     this.authService.login(this.loginForm.value).subscribe({
       next: () => {
-        this.router.navigate(['protected/dashboard']);
+        this.router.navigate(['protected/']);
       },
       error: (err) => {
         console.error('Login error:', err);

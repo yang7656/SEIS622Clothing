@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Router, Event, RoutesRecognized, RouteConfigLoadStart } from '@angular/router';
+import { Router, Event, RoutesRecognized, RouteConfigLoadStart, NavigationEnd, ActivatedRoute } from '@angular/router';
+import { filter, map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-root',
@@ -10,7 +11,7 @@ export class AppComponent implements OnInit {
  
   title = "SEIS-622 Northern Streetwear - From the Woods to the Pavement";
 
-  constructor(private router: Router) {}
+  constructor(private router: Router, private route: ActivatedRoute) {}
   
   ngOnInit() {
     this.router.events.subscribe((event: Event) => {
@@ -22,6 +23,7 @@ export class AppComponent implements OnInit {
         console.log('RouteConfigLoadStart:', event);
       }
     });
+
   }
 
 }

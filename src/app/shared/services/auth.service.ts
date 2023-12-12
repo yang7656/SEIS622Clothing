@@ -5,6 +5,7 @@ import { BehaviorSubject, Observable, tap } from 'rxjs';
 import { JwtHelperService } from '@auth0/angular-jwt';
 import { LoginRequest, LoginResponse, RegisterRequest, RegisterResponse } from '../../models/IPublic';
 import { NotificationService } from './notification.service';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -13,14 +14,14 @@ export class AuthService {
 
   private loggedIn = new BehaviorSubject<boolean>(false);
 
-  constructor(private http: HttpClient, private notificationService: NotificationService, private jwtService: JwtHelperService) { }
+  constructor(private http: HttpClient, private notificationService: NotificationService, private jwtService: JwtHelperService, private router: Router) { }
 
   // Login a user
   login(loginRequest: LoginRequest): Observable<LoginResponse> {
 
     return this.http.post<LoginResponse>('http://localhost:8000/login', loginRequest).pipe(
-      tap((res: any) => {
-        localStorage.setItem(LOCALSTORAGE_TOKEN_KEY, res.body.id_number);
+      tap((res: LoginResponse) => {
+        localStorage.setItem(LOCALSTORAGE_TOKEN_KEY, res.accessToken);
         this.notificationService.showSuccess('Login successful');
         this.loggedIn.next(true);
       })
@@ -36,8 +37,10 @@ export class AuthService {
   }
 
   // Check if a user is logged in
-  isLoggedIn() {
+  isLoggedIn() : Observable<boolean> {
+    //console.log(!!localStorage.getItem(LOCALSTORAGE_TOKEN_KEY));
     return this.loggedIn.asObservable();
+    //return !!localStorage.getItem(LOCALSTORAGE_TOKEN_KEY);
   }
 
   // Register a new user

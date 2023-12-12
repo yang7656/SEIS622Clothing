@@ -19,7 +19,7 @@ export class TopMenuComponent {
     userSignIn: true,
     cart: true,
     contact: 'mailto: fashionpolice@seis-622.com'
-    };
+  };
 
   constructor(private authService: AuthService) { }
 
@@ -32,6 +32,7 @@ export class TopMenuComponent {
 
   //Takes in a JSON object and maps it to the IMenuItem interface
   isAuthenticated(): boolean {
+    //console.log('TopMenuComponent#isAuthenticated called: ' + this.loggedIn);
     return this.loggedIn;
   }
 

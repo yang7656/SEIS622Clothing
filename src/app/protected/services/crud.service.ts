@@ -9,7 +9,7 @@ import { HttpClient, HttpHeaders, HttpErrorResponse, } from '@angular/common/htt
 export class CrudService {
 
   // Node/Express API
-  REST_API: string = 'http://localhost:8000/api';
+  REST_API: string = 'http://localhost:8000/';
   // Http Header
   httpHeaders = new HttpHeaders().set('Content-Type', 'application/json');
   

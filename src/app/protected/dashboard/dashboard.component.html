@@ -1,10 +1,14 @@
-<div class="wholePage"><top-menu></top-menu>
-    <h1>DASHBOARD</h1>
+<top-menu></top-menu>
+<div class="wholePage">
+
+    <h1 class="dashboard-title">DASHBOARD</h1>
+
     <div class="dashboard-container">
-        <button class="custom-button" (click)="goTo('shopping')">Continue Shopping</button><br/><br/>
-        <button class="custom-button" (click)="goTo('cart')">My Cart</button><br/><br/>
-        <button class="custom-button" (click)="goTo('myaccount')">My Account</button><br/><br/>
-        <button class="custom-button" (click)="goTo('checkout')">Checkout</button><br/><br/>
+        <div class="dashboard-button" (click)="continueShopping()">Continue Shopping</div>
+        <div class="dashboard-button" (click)="myCart()">My Cart</div>
+        <div class="dashboard-button" (click)="myAccount()">My Account</div>
+        <div class="dashboard-button" (click)="checkout()">Checkout</div>
+        <div class="dashboard-button" (click)="logout()" style="background-color: red; color: white;">Logout</div>
     </div>
+
 </div>
-<div class="logout-container"><button class="custom-button" (click)="logout()">Logout</button></div>  

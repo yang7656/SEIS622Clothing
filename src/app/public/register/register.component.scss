@@ -33,9 +33,10 @@
     .card-content {
       .form-field {
         margin-bottom: 15px;
+        padding: 0 20px; /* Add horizontal padding */
 
         input {
-          width: 100%;
+          width: calc(100% - 30px); /* Subtract the padding from the width */
           padding: 10px;
           font-size: 16px;
           border: 1px solid #eee8db;

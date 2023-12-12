@@ -18,6 +18,14 @@ export class MyAccountComponent implements OnInit {
       newEmail: ['', [Validators.required, Validators.email]],
       newPassword: ['', Validators.required, Validators.minLength(6)],
       newPhone: ['', Validators.required, Validators.minLength(10)],
+      newUsername: ['', Validators.required],
+      newFirstName: ['', Validators.required],
+      newLastName: ['', Validators.required],
+      newStreetAdd: ['', Validators.required],
+      newStreetAdd2: ['', Validators.required],
+      newCity: ['', Validators.required],
+      newState: ['', Validators.required],
+      newZipCode: ['', Validators.required]
     });
   }
 

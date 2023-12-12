@@ -10,8 +10,9 @@ const routes: Routes = [
   { path: 'register', component: RegisterComponent },
   { path: 'product/:productName', component: ProductPageComponent },
   { path: '', component: ShoppingComponent },
-  { path: '**', redirectTo: '', pathMatch: 'full' }
+  //{ path: '**', redirectTo: '', pathMatch: 'full' }
 ];
+
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
