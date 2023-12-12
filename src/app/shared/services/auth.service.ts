@@ -22,7 +22,7 @@ export class AuthService {
     return this.http.post<LoginResponse>('http://localhost:8000/login', loginRequest).pipe(
       tap((res: LoginResponse) => {
         localStorage.setItem(LOCALSTORAGE_TOKEN_KEY, res.accessToken);
-        this.notificationService.showSuccess('Login successful');
+        //this.notificationService.showSuccess('Login successful');
         this.loggedIn.next(true);
         console.log(this.getLoggedInUser())
       })
@@ -33,7 +33,7 @@ export class AuthService {
   // Logout a user
   logout() {
     localStorage.removeItem(LOCALSTORAGE_TOKEN_KEY);
-    this.notificationService.showSuccess('Logout successful');
+    //this.notificationService.showSuccess('Logout successful');
     this.loggedIn.next(false);
   }
 

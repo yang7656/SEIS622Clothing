@@ -48,9 +48,20 @@ fs.readFile(userRoutes, (err, data) => {
 
 //Many of these are placeholders for the user data service
 app.get('/users', (req, res) => {
-    //console.log(req.params.id);
-    //const target = users.find(user => user.id === req.params.id);
+
+    if (req.query.id_number) {
+        const target = users.find(user => user.id_number == req.query.id_number);
+        if (!target) {
+            res.status(404);
+            return res.json({ error: 'User not found' });
+        }
+        else {
+            return res.json(target);
+        }
+    }
+
     res.json(users);
+    
 });
 
 
@@ -95,18 +106,52 @@ app.post('/register', (req, res) => {
     return res.status(200).json({ message: 'Register successfully!' });
 });
 
+// update user info
+app.put('/users', (req, res) => {
+    if (req.query.id_number) {
+        
+        const target = users.findIndex(user => user.id_number == req.query.id_number);
 
+        if (!target) {
+            res.status(404);
+            return res.json({ error: 'User not found' });
+        }
+        
+        if (req.body.newPass) {
+            
+            if (req.body.currentPass != users[target].password) {
+                res.status(404);
+                return res.json({ error: 'Current password is incorrect' });
+            }
 
+            users[target].password = req.body.newPass;
+            return res.status(200).json(users);
+        }
+        else {
+            const newData = {
+                "id_number": users[target].id_number,
+                "first_name": req.body.newFirstName,
+                "last_name": req.body.newLastName,
+                "email": req.body.newEmail,
+                "street_add": req.body.newStreetAdd,
+                "street_add_2": req.body.newStreetAdd2,
+                "city": req.body.newCity,
+                "state": req.body.newState,
+                "zipcode": req.body.newZipCode,
+                "phone": req.body.newPhone,
+                "username": req.body.newUsername,
+                "password": users[target].password,
+            };
+
+            users[target] = newData;
+            return res.status(200).json(users);
+        }
+    }
+});
 
 
 /**
-app.put('/users/:id', (req, res) => {
-    const id = req.params.id;
-    const user = req.body;
-    const index = users.findIndex(user => user.id === id);
-    users[index] = user;
-    res.json(user);
-});
+
 
 
 
