@@ -10,6 +10,7 @@ import { ReactiveFormsModule } from '@angular/forms';
   styleUrls: ['./myaccount.component.scss']
 })
 export class MyAccountComponent implements OnInit {
+  
   user = {} as IUser;
   public updateForm: FormGroup;
 

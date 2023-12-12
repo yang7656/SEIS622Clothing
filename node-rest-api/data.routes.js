@@ -4,6 +4,7 @@ const app = express();
 const cors = require('cors');
 const fs = require('fs');
 const bodyParser = require('body-parser');
+const jwt = require('jsonwebtoken');
 const userRoutes = path.join(__dirname, '../src/assets/data/customer_data.json');
 const imagesDirectory = path.join(__dirname, '../src/assets/images/products');
 
@@ -65,8 +66,12 @@ app.post('/login', (req, res) => {
     }
     else
     {
-        //res.status(200).json({ message: 'Login successfully!', body: target });
-        const access = Math.random().toString(36).substring(2)
+        const payload = {
+            user: target
+        };
+        const secret = 'SEIS622';
+
+        const accessToken = jwt.sign(payload, secret, { expiresIn: '7d' });
         const refreshToken = {
             userId: target.id_number,
             token: Math.random().toString(36).substring(2),
@@ -75,8 +80,8 @@ app.post('/login', (req, res) => {
         };
 
         res.status(200).json({ 
-            accessToken: access, 
-            refreshToken: refreshToken, 
+            accessToken: accessToken, 
+            refreshToken: refreshToken,
             tokenType: 'Bearer'
         });
     }

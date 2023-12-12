@@ -24,6 +24,7 @@ export class AuthService {
         localStorage.setItem(LOCALSTORAGE_TOKEN_KEY, res.accessToken);
         this.notificationService.showSuccess('Login successful');
         this.loggedIn.next(true);
+        console.log(this.getLoggedInUser())
       })
     );
 

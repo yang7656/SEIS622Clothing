@@ -1,37 +1,37 @@
 .wholePage {
-    background-color: #aeb9ac; /* Change the background color to green */
-    padding: 20px; 
-    min-height: 100vh;
-  }
-  
-  .myaccount-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 40px; 
-  }
-  
-  .form-field {
-    width: 600px;
-    display: flex;
-    flex-direction: column;
-    background-color: #ffffff;
-    padding: 10px;
-    border-radius: 10px;
-    margin-bottom: 20px;
-  }
-  
-  .form-field label {
-    font-weight: bold;
-    margin-bottom: 10px;
-  }
-  
-  .form-field input {
-    padding: 10px;
-    border: none;
-    border-radius: 5px;
-  }
-  
-  h2 {
-    color: #ffffff; /* Change the text color to white for better contrast against the green background */
-  }
+  background-color: #aeb9ac; /* Change the background color to green */
+  padding: 20px; 
+  min-height: 100vh;
+}
+
+.myaccount-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px; 
+}
+
+.form-field {
+  width: 600px;
+  display: flex;
+  flex-direction: column;
+  background-color: #ffffff;
+  padding: 10px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+
+.form-field label {
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.form-field input {
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+}
+
+h1 {
+  margin-left: 60px;
+}
