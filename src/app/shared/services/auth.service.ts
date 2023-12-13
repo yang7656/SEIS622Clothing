@@ -6,6 +6,7 @@ import { JwtHelperService } from '@auth0/angular-jwt';
 import { LoginRequest, LoginResponse, RegisterRequest, RegisterResponse } from '../../models/IPublic';
 import { NotificationService } from './notification.service';
 import { Router } from '@angular/router';
+import { ICartItem } from 'src/app/models/ICart';
 
 @Injectable({
   providedIn: 'root'
@@ -22,9 +23,7 @@ export class AuthService {
     return this.http.post<LoginResponse>('http://localhost:8000/login', loginRequest).pipe(
       tap((res: LoginResponse) => {
         localStorage.setItem(LOCALSTORAGE_TOKEN_KEY, res.accessToken);
-        //this.notificationService.showSuccess('Login successful');
         this.loggedIn.next(true);
-        console.log(this.getLoggedInUser())
       })
     );
 
@@ -33,15 +32,12 @@ export class AuthService {
   // Logout a user
   logout() {
     localStorage.removeItem(LOCALSTORAGE_TOKEN_KEY);
-    //this.notificationService.showSuccess('Logout successful');
     this.loggedIn.next(false);
   }
 
   // Check if a user is logged in
   isLoggedIn() : Observable<boolean> {
-    //console.log(!!localStorage.getItem(LOCALSTORAGE_TOKEN_KEY));
     return this.loggedIn.asObservable();
-    //return !!localStorage.getItem(LOCALSTORAGE_TOKEN_KEY);
   }
 
   // Register a new user
@@ -56,4 +52,5 @@ export class AuthService {
     const decodedToken = this.jwtService.decodeToken();
     return decodedToken.user;
   }
+
 }

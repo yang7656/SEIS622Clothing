@@ -13,21 +13,16 @@ export class AuthGuard {
   
   canActivate(next: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
     
+    const isLoggedIn = this.authService.isLoggedIn();
+
     if (this.jwtService.isTokenExpired()) {
+      console.log(this.jwtService)
       this.router.navigate(['']);
       return false;
-    } else {
-      return true;
-    }
+    } 
     
-    //const isLoggedIn = this.authService.isLoggedIn();
-    //console.log('AuthGuard#canActivate called, isLoggedIn:', isLoggedIn);
-    //return isLoggedIn;
-    //const isLoggedIn = this.authService.isLoggedIn();
-    //console.log('AuthGuard#canActivate called, isLoggedIn:', isLoggedIn);
+    return isLoggedIn;
     
-    
-    //return isLoggedIn;
   }
 
   

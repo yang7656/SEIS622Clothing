@@ -37,7 +37,6 @@ export class SharedshopComponent implements OnInit {
   }
 
   onImageClick(product: any) {
-    console.log("clicked: " + product);
     this.router.navigate(['/product', product]);
   }
 }

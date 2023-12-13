@@ -7,6 +7,7 @@ import { ICartItem } from '../models/ICart';
   providedIn: 'root'
 })
 export class ShoppingCartService {
+  
   private cartItemsSubject: BehaviorSubject<ICartItem[]> = new BehaviorSubject<ICartItem[]>([]);
   cartItems$: Observable<ICartItem[]> = this.cartItemsSubject.asObservable();
 
@@ -17,7 +18,19 @@ export class ShoppingCartService {
   }
 
   addToCart(item: ICartItem): void {
+
     const currentCartItems = this.cartItemsSubject.value;
-    this.cartItemsSubject.next([...currentCartItems, item]);
+
+    // if item already exists in the cart, update the quantity
+    const index = currentCartItems.findIndex(_item => _item.name === item.name && _item.size === item.size);
+
+    if (index !== -1) {
+      currentCartItems[index].quantity += item.quantity;
+      this.cartItemsSubject.next([...currentCartItems]);
+    }
+    else {
+      this.cartItemsSubject.next([...currentCartItems, item]);
+    }
+
   }
 }

@@ -16,8 +16,6 @@ const routes: Routes = [
   { path: '**', redirectTo: 'dashboard', pathMatch: 'full' }
 ];
 
-console.log('Protected Routing Module Loaded');
-
 @NgModule({
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
