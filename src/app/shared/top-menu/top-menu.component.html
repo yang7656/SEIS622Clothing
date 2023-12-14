@@ -1,6 +1,6 @@
 <ul class="menu-container">
   <li>
-    <a [routerLink]="['app-new-arrival']"><img src='{{menu.logo}}' alt="SEIS-622: Northern Streetwear" class="logo" /></a>
+    <a [routerLink]="['/']"><img src='{{menu.logo}}' alt="SEIS-622: Northern Streetwear" class="logo" /></a>
   </li>  
   <li class="dropdown-menu">
     <dropdown-menu></dropdown-menu>
@@ -8,12 +8,20 @@
   <li class="search-box" *ngIf="menu.searchBox">
     <menu-search></menu-search>
   </li>
-  <li class="signin">
-    <div *ngIf="!isAuthenticated(); else loggedIn"><a [routerLink]="['login']">Sign In</a></div>
-    <ng-template #loggedIn><a [routerLink]="['protected/myaccount']"><img src="assets/images/green_user_icon.png" class="userIcon" alt="My Account" /></a></ng-template>
+  <li >
+    <div *ngIf="!isAuthenticated(); else loggedIn" class="signin" >
+      <a [routerLink]="['/login']">
+        Sign In / Up
+      </a>
+    </div>
+    <ng-template #loggedIn>
+      <a [routerLink]="['/protected/dashboard']">
+        <img src="assets/images/green_user_icon.png" class="userIcon block" alt="My Account" />
+      </a>
+    </ng-template>
   </li>
   <li class="cart-image" *ngIf="menu.cart">
-    <button class="cart-button" [routerLink]="['protected/cart']" ><img src="assets/images/cart.png" alt="View Your Cart" class="cart"></button>
+    <button class="cart-button" [routerLink]="['/protected/cart']" ><img src="assets/images/cart.png" alt="View Your Cart" class="cart"></button>
   </li>
   <li class="contact">
     <a href={{menu.contact}}>Contact Us</a>

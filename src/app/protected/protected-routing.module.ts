@@ -12,7 +12,8 @@ const routes: Routes = [
   { path: 'checkout',  component: CheckoutComponent  },
   { path: 'cart', component: CartComponent },
   { path: 'shopping', component: SafeshoppingComponent },
-  { path: '**', redirectTo: 'dashboard', pathMatch: 'full' } // Redirect unknown paths to 'dashboard'
+  { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
+  { path: '**', redirectTo: 'dashboard', pathMatch: 'full' }
 ];
 
 @NgModule({

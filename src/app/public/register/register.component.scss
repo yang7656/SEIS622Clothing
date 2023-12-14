@@ -33,9 +33,10 @@
     .card-content {
       .form-field {
         margin-bottom: 15px;
+        padding: 0 20px; 
 
         input {
-          width: 100%;
+          width: calc(100% - 30px); 
           padding: 10px;
           font-size: 16px;
           border: 1px solid #eee8db;

@@ -32,4 +32,25 @@ export class CartComponent implements OnInit {
             this.cartItems.splice(index, 1);
         }
     }
+
+    editItem(item: any) {
+
+        const quantity = prompt('Enter the new quantity');
+        const index = this.cartItems.indexOf(item);
+
+        if (quantity !== null) {
+
+            if(!parseInt(quantity)) {
+                alert('Please enter a number');
+                return;
+            }
+
+            if (index !== -1) {
+                this.cartItems[index].quantity = parseInt(quantity);
+            }
+        }
+        else{
+            return;
+        }        
+    }
 }

@@ -9,7 +9,7 @@ import { HttpClient, HttpHeaders, HttpErrorResponse, } from '@angular/common/htt
 export class CrudService {
 
   // Node/Express API
-  REST_API: string = 'http://localhost:8000/api';
+  REST_API: string = 'http://localhost:8000/';
   // Http Header
   httpHeaders = new HttpHeaders().set('Content-Type', 'application/json');
   
@@ -26,7 +26,7 @@ export class CrudService {
 
   // Get single user data by ID
   GetUser(id:any): Observable<any> {
-    let API_URL = `${this.REST_API}/read-user/${id}`;
+    let API_URL = `${this.REST_API}users?id_number=${id}`;
     return this.httpClient.get(API_URL, { headers: this.httpHeaders })
       .pipe(map((res: any) => {
           return res || {}
@@ -37,7 +37,7 @@ export class CrudService {
 
   // Update user data
   UpdateUser(id:any, data:any): Observable<any> {
-    let API_URL = `${this.REST_API}/update-user/${id}`;
+    let API_URL = `${this.REST_API}users?id_number=${id}`;
     return this.httpClient.put(API_URL, data, { headers: this.httpHeaders })
       .pipe(
         catchError(this.handleError)

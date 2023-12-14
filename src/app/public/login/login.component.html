@@ -1,5 +1,6 @@
+<top-menu></top-menu>
 <div class="login-container">
-  <a [routerLink]="['register']">Create Account</a>
+  <a [routerLink]="['../register']" style="color: aliceblue;">Create Account</a>
   <div class="custom-card">
     <div class="card-title">Login</div>
     <div class="card-content">
@@ -18,6 +19,9 @@
         </div>
         <div class="button">
           <button type="submit" [disabled]="!loginForm.valid">Login</button>
+        </div>
+        <div *ngIf="!correctInput">
+          <p style="color: red;">Incorrect email or password</p>
         </div>
       </form>
     </div>

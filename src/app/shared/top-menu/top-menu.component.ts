@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { IMenuItem } from '../../models/IMenuItem';
-import { AuthGuard } from 'src/app/auth-guard/auth.guard';
+import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'top-menu', 
@@ -9,27 +9,31 @@ import { AuthGuard } from 'src/app/auth-guard/auth.guard';
 })
 
 export class TopMenuComponent {
+
+
+  loggedIn: boolean = false;
+  
   public menu: IMenuItem = {
     logo: 'assets/images/logo.png',
     searchBox: true,
     userSignIn: true,
     cart: true,
     contact: 'mailto: fashionpolice@seis-622.com'
-    };
+  };
 
-  constructor(private authService: AuthGuard) { }
+  constructor(private authService: AuthService) { }
 
-    //Takes in a JSON object and maps it to the IMenuItem interface
-  public mapMenu(items: any): IMenuItem {
-    this.menu.logo = items.logo;
-    this.menu.searchBox = items.searchBox;
-    this.menu.userSignIn = items.userSignIn;
-    this.menu.cart = items.cart;
-    this.menu.contact = items.contact;
-    return this.menu;
+  ngOnInit() {
+    // Subscribe to the isLoggedIn Observable
+    this.authService.isLoggedIn().subscribe((loggedIn) => {
+      this.loggedIn = loggedIn;
+    });
   }
 
+  //Takes in a JSON object and maps it to the IMenuItem interface
   isAuthenticated(): boolean {
-    return false; //<boolean>this.authService.canActivate();
+    //console.log('TopMenuComponent#isAuthenticated called: ' + this.loggedIn);
+    return this.loggedIn;
   }
+
 }

@@ -3,9 +3,18 @@ import { RouterModule, Routes } from '@angular/router';
 import { AuthGuard } from './auth-guard/auth.guard';
 
 const routes: Routes = [
-  { path: 'public', loadChildren: () => import('./public/public.module').then(m => m.PublicModule) },
-  { path: 'protected', canActivate: [AuthGuard], loadChildren: () => import('./protected/protected.module').then(m => m.ProtectedModule) },
-  { path: '', redirectTo: 'public', pathMatch: 'full' }, // Redirect empty path to 'public'
+  { 
+    path: 'public', 
+    loadChildren: () => import('./public/public.module').then(m => m.PublicModule) 
+  },
+  
+  {
+    path: 'protected', 
+    canActivate: [AuthGuard],
+    loadChildren: () => import('./protected/protected.module').then(m => m.ProtectedModule) 
+  },
+  
+  { path: '', redirectTo: 'public', pathMatch: 'full' },
   { path: '**', redirectTo: 'public', pathMatch: 'full' }
 ];
 
@@ -13,4 +22,4 @@ const routes: Routes = [
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}
